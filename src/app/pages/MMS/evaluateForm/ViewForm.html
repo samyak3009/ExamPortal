@@ -1,0 +1,288 @@
+<!-- <div class="task-container">  -->
+<div ng-if="x.type == 'input'" class="">
+  <div class="col-md-12" ng-if="x.category == 'text'">
+    <div class="col-md-12">
+      <span class="col-md-6">
+        <b style="color: black">{{$index+1}}.&nbsp;) &nbsp;</b
+        ><label
+          class="control-label minotaur-label"
+          ng-bind-html="x.label"
+        ></label
+        ><b style="color: black"> :</b>
+      </span>
+      <span class="col-md-6"
+        ><label class="control-label"><b>{{x.answer}}</b></label></span
+      >
+      <!-- <div class="col-md-6" ng-include src="'app/pages/MMS/IndirectForm/Input_Text.html'"></div> -->
+    </div>
+    <span class="col-md-12" ng-show="x.remarks != null">
+      <span class="col-md-1"></span>
+      <span class="col-md-3">
+        <label class="control-label minotaur-label">Remark</label
+        ><b style="color: black"> :</b>
+      </span>
+      <span class="col-md-5"
+        ><label class="control-label"><b>{{x.remarks}}</b></label></span
+      >
+      <span class="col-md-3"></span>
+    </span>
+    <br />
+  </div>
+</div>
+<div class="col-md-12" ng-if="x.category == 'email'">
+  <div class="col-md-12">
+    <span class="col-md-6">
+      <b style="color: black"> {{$index+1}}.&nbsp;) &nbsp;</b
+      ><label
+        class="control-label minotaur-label"
+        ng-bind-html="x.label"
+      ></label
+      ><b style="color: black"> :</b>
+    </span>
+    <!-- <div class="col-md-6" ng-include src="'app/pages/MMS/IndirectForm/Email.html'"></div> -->
+    <span class="col-md-6"
+      ><label class="control-label"><b>{{x.answer}}</b></label></span
+    >
+  </div>
+  <span class="col-md-12" ng-show="x.remarks != null">
+    <span class="col-md-1"></span>
+    <span class="col-md-3">
+      <label class="control-label minotaur-label">Remark</label
+      ><b style="color: black"> :</b>
+    </span>
+    <span class="col-md-5"
+      ><label class="control-label"><b>{{x.remarks}}</b></label></span
+    >
+    <span class="col-md-3"></span>
+  </span>
+  <br />
+</div>
+<div class="col-md-12" ng-if="x.category == 'number'">
+  <div class="col-md-12">
+    <span class="col-md-6">
+      <b style="color: black"> {{$index+1}}.&nbsp;) &nbsp;</b>
+      <label class="control-label minotaur-label" ng-bind-html="x.label"></label
+      ><b style="color: black"
+        ><span ng-show="x.po_id!=null"> (Range {{x.min}}-{{x.max}})</span> :</b
+      >
+    </span>
+    <!-- <div class="col-md-6" ng-include src="'app/pages/MMS/IndirectForm/Number.html'"></div> -->
+    <span class="col-md-6"
+      ><label class="control-label"><b>{{x.answer}}</b></label></span
+    >
+  </div>
+  <span class="col-md-12" ng-show="x.remarks != null">
+    <span class="col-md-1"></span>
+    <span class="col-md-3">
+      <label class="control-label minotaur-label">Remark</label
+      ><b style="color: black"> :</b>
+    </span>
+    <span class="col-md-5"
+      ><label class="control-label"><b>{{x.remarks}}</b></label></span
+    >
+    <span class="col-md-3"></span>
+  </span>
+  <br />
+</div>
+<div
+  class="col-md-12"
+  ng-if="x.category == 'textarea' || x.category == 'paragraph'"
+>
+  <div class="col-md-12">
+    <span class="col-md-6">
+      <b style="color: black"> {{$index+1}}.&nbsp;) &nbsp;</b>
+      <label class="control-label minotaur-label" ng-bind-html="x.label"></label
+      ><b style="color: black"> :</b>
+    </span>
+    <!-- <div class="col-md-6" ng-include src="'app/pages/MMS/IndirectForm/paragraph.html'"></div> -->
+    <span class="col-md-6"
+      ><label class="control-label" ng-bind-html="x.answer"><b></b></label
+    ></span>
+  </div>
+  <span class="col-md-12" ng-show="x.remarks != null">
+    <span class="col-md-1"></span>
+    <span class="col-md-3">
+      <label class="control-label minotaur-label">Remark</label
+      ><b style="color: black"> :</b>
+    </span>
+    <span class="col-md-5"
+      ><label class="control-label"><b>{{x.remarks}}</b></label></span
+    >
+    <span class="col-md-3"></span>
+  </span>
+  <br />
+</div>
+<div class="col-md-12" ng-if="x.category == 'radio'">
+  <div class="col-md-12">
+    <span class="col-md-6">
+      <b style="color: black"> {{$index+1}}.&nbsp;) &nbsp;</b
+      ><label
+        class="control-label minotaur-label"
+        ng-bind-html="x.label"
+      ></label
+      ><b style="color: black"> :</b>
+    </span>
+    <!-- <div class="col-md-6" ng-include src="'app/pages/MMS/IndirectForm/radio_btn.html'"></div> -->
+    <span class="col-md-6"
+      ><label class="control-label"><b>{{x.answer}}</b></label></span
+    >
+  </div>
+  <span class="col-md-12" ng-show="x.remarks != null">
+    <span class="col-md-1"></span>
+    <span class="col-md-3">
+      <label class="control-label minotaur-label">Remark</label
+      ><b style="color: black"> :</b>
+    </span>
+    <span class="col-md-5"
+      ><label class="control-label"><b>{{x.remarks}}</b></label></span
+    >
+    <span class="col-md-3"></span>
+  </span>
+  <br />
+</div>
+<div class="col-md-12" ng-if="x.category == 'checkbox'">
+  <div class="col-md-12">
+    <span class="col-md-6">
+      <b style="color: black"> {{$index+1}}.&nbsp;) &nbsp;</b
+      ><label
+        class="control-label minotaur-label"
+        ng-bind-html="x.label"
+      ></label
+      ><b style="color: black"> :</b>
+    </span>
+    <!-- <div class="col-md-6" ng-include src="'app/pages/MMS/IndirectForm/check_box.html'"></div> -->
+    <span class="col-md-6"
+      ><label class="control-label"><b>{{x.answer}}</b></label></span
+    >
+  </div>
+  <span class="col-md-12" ng-show="x.remarks != null">
+    <span class="col-md-1"></span>
+    <span class="col-md-3">
+      <label class="control-label minotaur-label">Remark</label
+      ><b style="color: black"> :</b>
+    </span>
+    <span class="col-md-5"
+      ><label class="control-label"><b>{{x.remarks}}</b></label></span
+    >
+    <span class="col-md-3"></span>
+  </span>
+  <br />
+</div>
+<div class="col-md-12" ng-if="x.category == 'date'">
+  <div class="col-md-12">
+    <span class="col-md-6">
+      <b style="color: black"> {{$index+1}}.&nbsp;) &nbsp;</b
+      ><label
+        class="control-label minotaur-label"
+        ng-bind-html="x.label"
+      ></label
+      ><b style="color: black"> :</b>
+    </span>
+    <!-- <div class="col-md-6" ng-include src="'app/pages/MMS/IndirectForm/date.html'"></div> -->
+    <span class="col-md-6"
+      ><label class="control-label"><b>{{x.answer}}</b></label></span
+    >
+  </div>
+  <br />
+</div>
+<div class="col-md-12" ng-if="x.category == 'file'">
+  <div class="col-md-12">
+    <span class="col-md-6">
+      <b style="color: black"> {{$index+1}}.&nbsp;) &nbsp;</b
+      ><label
+        class="control-label minotaur-label"
+        ng-bind-html="x.label"
+      ></label
+      ><b style="color: black"> :</b>
+    </span>
+    <!-- <a class="col-md-1" href="">{{x.answer}}</a> -->
+    <span class="col-md-5">
+      <a
+        target="_blank"
+        href="https://tech.kiet.edu/upload_images/activity/activity/{{x.answer}}"
+      >
+        <img
+          ng-src="https://tech.kiet.edu/upload_images/activity/activity/{{x.answer}}"
+          height="auto"
+          width="150px"
+          alt=""
+        />
+      </a>
+    </span>
+  </div>
+  <!-- <div ng-include src="'app/pages/MMS/IndirectForm/file_upload.html'"></div> -->
+  <span class="col-md-12" ng-show="x.remarks != null">
+    <span class="col-md-1"></span>
+    <span class="col-md-3">
+      <label class="control-label minotaur-label">Remark</label
+      ><b style="color: black"> :</b>
+    </span>
+    <span class="col-md-5"
+      ><label class="control-label"><b>{{x.remarks}}</b></label></span
+    >
+    <span class="col-md-3"></span>
+  </span>
+  <br />
+</div>
+<!-- </div> -->
+<div class="col-md-12" ng-if="x.category == 'slider'">
+  <div class="col-md-12">
+    <span class="col-md-6">
+      <b style="color: black"> {{$index+1}}.&nbsp;) &nbsp;</b
+      ><label
+        class="control-label minotaur-label"
+        ng-bind-html="x.label"
+      ></label
+      ><b style="color: black"
+        ><span ng-show="x.po_id!=null"> (Range {{x.min}}-{{x.max}})</span> :</b
+      >
+    </span>
+    <!-- <div class="col-md-6" ng-include src="'app/pages/MMS/IndirectForm/slider.html'"></div> -->
+    <span class="col-md-6"
+      ><label class="control-label"><b>{{x.answer}}</b></label></span
+    >
+  </div>
+  <span class="col-md-12" ng-show="x.remarks != null">
+    <span class="col-md-1"></span>
+    <span class="col-md-3">
+      <label class="control-label minotaur-label">Remark</label
+      ><b style="color: black"> :</b>
+    </span>
+    <span class="col-md-5"
+      ><label class="control-label"><b>{{x.remarks}}</b></label></span
+    >
+    <span class="col-md-3"></span>
+  </span>
+  <!-- <br> -->
+</div>
+<div class="col-md-12" ng-if="x.type == 'dropdown' || x.category == 'dropdown'">
+  <div class="col-md-12">
+    <span class="col-md-6">
+      <b style="color: black"> {{$index+1}}.&nbsp;) &nbsp;</b
+      ><label
+        class="control-label minotaur-label"
+        ng-bind-html="x.label"
+      ></label
+      ><b style="color: black"> :</b>
+    </span>
+    <!-- <div class="col-md-6" ng-include src="'app/pages/MMS/IndirectForm/drop_down.html'"></div> -->
+    <span class="col-md-6"
+      ><label class="control-label"><b>{{x.answer}}</b></label></span
+    >
+  </div>
+  <span class="col-md-12" ng-show="x.remarks != null">
+    <span class="col-md-1"></span>
+    <span class="col-md-3">
+      <label class="control-label minotaur-label">Remark</label
+      ><b style="color: black"> :</b>
+    </span>
+    <span class="col-md-5"
+      ><label class="control-label"><b>{{x.remarks}}</b></label></span
+    >
+    <span class="col-md-3"></span>
+  </span>
+  <br />
+</div>
+<br />
+<br />
+<hr style="border: 0.5px solid black" />

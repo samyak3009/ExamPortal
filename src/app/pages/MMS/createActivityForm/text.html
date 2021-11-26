@@ -1,0 +1,27 @@
+<!-- <div class="col-md-6"> -->
+<input
+  ng-model="x.answer"
+  ng-change="vm.test()"
+  uib-tooltip="{{x.info}}"
+  data-placement="right"
+  ng-if="!x.answerable"
+  type="text"
+  class="form-control input"
+  name=""
+  id=""
+/>
+<!-- </div> -->
+
+<span ng-if="x.isremarks == true">
+  <br />
+  <textarea
+    placeholder="Remarks"
+    ng-model="x.remarks"
+    class="remarks form-control"
+    name=""
+    id=""
+    cols="30"
+    rows="10"
+  ></textarea>
+</span>
+<br />

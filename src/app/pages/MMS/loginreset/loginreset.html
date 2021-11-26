@@ -1,0 +1,111 @@
+
+<div class="page page-tables pull-to-header">
+	
+	
+	
+	<ol class="breadcrumb bg-white">
+		<li><a ui-sref="dashboard">Home</a></li>
+		<li><a href="javascript:;">Dashboard</a></li>
+		<li class="active">Password Reset</li>
+	</ol>
+	
+	
+	<!-- row -->
+	<div class="row">
+		
+		
+		<!-- col -->
+		<div class="col-md-12">
+			
+			
+			<!-- tile -->
+			<div class="tile">
+				
+				<!-- tile header -->
+				<section class="tile-header">
+					<h1 class="heading"><p class="text-priamry"><center>SET DEFAULT PASSWORDS</center></p></h1>
+					
+				</section>
+				<!-- /tile header -->
+				
+				<!-- tile body -->
+				<div  class="tile" >
+					<div class="row">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="portlet">
+									
+									<div id="bg-primary1" class="panel-collapse collapse in">
+										<div class="portlet-body">
+											<div class="row">
+												<div class="col-lg-12">
+													<div class="p-20">
+														
+														
+														
+														<section class="tile-body" ng-controller="resetLogin as showcase">
+															
+															
+															<table  ng-table="showcase.tableParams"  class="table minotaur-table ng-table-rowselected">
+																{{$data}}
+																<tr ng-repeat = "user in $data"
+																ng-click="user.$selected = !user.$selected;"
+																ng-class="{'active': user.$selected}">
+																	<td data-title="'Sno.'" >
+																		{{$index+1}}
+																	</td>
+																	<td data-title="'EMPLOYEE ID'" data-sortable="'emp_id'" filter="{ 'emp_id': 'number' }">
+																		{{user.emp_id}}
+																	</td>
+																	<td data-title="'NAME'" data-sortable="'name'" filter="{ 'name': 'text' }">
+																		{{user.name}}
+																	</td>
+																	<td data-title="'DEPARTMENT'" data-sortable="'dept__value'" filter="{ 'dept__value': 'text' }">
+																		{{user.dept__value}}
+																	</td>
+																	<td data-title="'DESIGNATION'" data-sortable="'desg__value'" filter="{ 'desg__value': 'text' }">
+																		{{user.desg__value}}
+																	</td>
+																	<td data-title="'RESET PASSWORD'">
+																		<button class="btn btn-rounded-10 btn-ef btn-ef-2 btn-ef-2-dutch btn-ef-2a mb-10" ng-click="login_reset.reset(user.emp_id,user.name)"><b>RESET</b></button>
+																		<!--<button class="btn btn-rounded-10 btn-ef btn-ef-2 btn-ef-2-amethyst btn-ef-2a mb-10" ng-click="login_reset.reset(user.emp_id,user.name)"><b>RESET</b></button>-->
+																	</td>
+																</tr>
+															</table>
+															
+														</section>
+														
+														
+														
+														
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /tile body -->
+				
+			</div>
+			<!-- /tile -->
+			
+			
+			
+			
+			
+			
+		</div>
+        <!-- /col -->
+	</div>
+    <!-- /row -->
+</div>
+
+
+
+
+
+

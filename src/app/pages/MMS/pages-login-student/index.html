@@ -1,0 +1,323 @@
+<!-- CSS only -->
+<link
+  rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+  integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+  crossorigin="anonymous"
+/>
+
+<!-- JS, Popper.js, and jQuery -->
+<script
+  src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+  integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+  crossorigin="anonymous"
+></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+  integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+  crossorigin="anonymous"
+></script>
+<script
+  src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+  integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+  crossorigin="anonymous"
+></script>
+<link
+  href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+  rel="stylesheet"
+  integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+  crossorigin="anonymous"
+/>
+<link
+  href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap"
+  rel="stylesheet"
+/>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script> -->
+
+<div class="login-box">
+  <div class="container">
+    <div class="row">
+      <div
+        class="col-sm-10 offset-sm-1 col-md-8 col-lg-6 offset-md-2 offset-xl-3"
+      >
+        <form ng-submit="ctrl.login()" class="form" name="loginForm">
+          <h3 class="heading--form text-center">
+            <strong>Student </strong>Login
+          </h3>
+          <div class="form-group">
+            <label for="libid">Student ID</label>
+            <input
+              type="text"
+              class="form-control form--input"
+              id="libid"
+              autocomplete="off"
+              name="libid"
+              ng-model="ctrl.username"
+              required
+            />
+            <!-- <span
+              class="span--error"
+              ng-if="(loginForm.libid.$error.minlength || loginForm.libid.$error.maxlength|| loginForm.libid.$error.required) && loginForm.libid.$touched"
+              >Please enter valid LIBRARY ID</span
+            > -->
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              class="form-control form--input"
+              id="password"
+              name="password"
+              ng-required="true"
+              ng-model="ctrl.password"
+            />
+            
+            <!-- <span
+              class="span--error"
+              ng-if="(loginForm.password.$error.minlength || loginForm.password.$error.maxlength || loginForm.password.$error.required)&& loginForm.password.$touched"
+              >enter a password with length of 8 - 16 characters</span
+            > -->
+          </div>
+
+          <a href="#" class="form__forgot-password">forgot password?</a>
+          <div class="d-flex justify-content-center form--button">
+            <button
+              type="submit"
+              class="btn btn-primary form-button"
+              ng-disabled="loginForm.$invalid"
+            >
+              Submit
+            </button>
+          </div>
+
+          <!-- This is the beginning of third party icons for login -->
+          <h3 class="heading--third-party-logins text-center">
+            or sign in with
+          </h3>
+          <div class="signin d-flex justify-content-center third-party-logins">
+            <i
+              class="fa fa-facebook-official third-party-icons"
+              aria-hidden="true"
+            ></i>
+            <i
+              class="fa fa-twitter-square third-party-icons"
+              aria-hidden="true"
+            ></i>
+            <i class="fa fa-google third-party-icons" aria-hidden="true"></i>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+  }
+
+  :root {
+    --color-white: #fff;
+    --color-black: #000;
+    --color-primary-1: #c850c0;
+    --color-primary-2: #4158d0;
+    --color-facebook-icon: #3b5998;
+    --color-twitter-icon: #38a1f3;
+    --color-google-icon: #db4a39;
+    --color-error-red: #ff0000;
+  }
+
+  html {
+    font-size: 63.5%;
+  }
+
+  body {
+    font-family: "Lato", sans-serif;
+    color: var(--color-black) !important;
+    font-size: 1.6rem;
+    line-height: 1.6;
+    color: var(--color-white);
+    z-index: -1;
+    background-image: linear-gradient(
+      -135deg,
+      var(--color-primary-1),
+      var(--color-primary-2)
+    );
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    font-weight: 400;
+  }
+
+  /* Beginning of login box*/
+
+  .login-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+  }
+
+  /* Form styling below */
+  .form {
+    padding: 3rem 5rem;
+    border-radius: 0.7rem;
+    background-color: var(--color-white);
+    box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.6);
+  }
+
+  .heading--form {
+    padding-bottom: 2.5rem;
+    font-size: 2.9rem;
+    /* font-weight: 900; */
+    letter-spacing: 0.5rem;
+  }
+
+  .form--input {
+    font-style: inherit;
+    font-weight: 400;
+    color: black;
+    font-size: 1.6rem;
+    padding: 2rem 2rem;
+    border: none;
+    border-bottom: 2px solid var(--color-primary-1);
+    box-shadow: none !important;
+    transition: all 0.5s;
+    margin-bottom: 0.4rem;
+  }
+
+  .form--input:focus {
+    transform: translateY(-2px) scaleX(1.15);
+    border-bottom: 4px solid var(--color-primary-2) !important;
+    margin-bottom: 0;
+    font-style: inherit;
+  }
+
+  label {
+    font-size: 1.7rem !important;
+  }
+
+  .form__forgot-password {
+    display: block;
+    text-align: right;
+    color: #777;
+  }
+
+  .form__forgot-password:hover {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .form-button {
+    font-size: 1.6rem;
+    outline: none;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
+    margin-top: 3rem;
+    padding: 1.8rem 5rem;
+    background-image: linear-gradient(
+      135deg,
+      var(--color-primary-1),
+      var(--color-primary-2)
+    );
+    font-weight: 900;
+    letter-spacing: 0.3rem;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 10rem;
+    transition: all 0.4s;
+    position: relative;
+  }
+
+  .form-button::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.6s;
+    width: 100%;
+    height: 100%;
+    z-index: -10;
+    border-radius: 10rem;
+  }
+
+  .form-button:hover::after {
+    background-image: linear-gradient(
+      135deg,
+      var(--color-primary-1),
+      var(--color-primary-2)
+    );
+    transform: scale(1.4, 1.5);
+    opacity: 0;
+  }
+
+  .form-button:hover {
+    transform: scale(1.1) translateY(0.6px);
+    box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.6);
+  }
+
+  .form-button:active {
+    transform: scale(1.1) translateY(-1px);
+  }
+
+  /* third party login icon and heading */
+
+  .heading--third-party-logins {
+    font-size: 1.2rem;
+    margin-top: 7rem;
+  }
+
+  .third-party-icons {
+    padding-top: 1rem;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+
+  .third-party-icons:hover {
+    box-shadow: 0 2rem 2.5rem rgba(0, 0, 0, 0.8);
+  }
+
+  .third-party-icons:not(:last-child) {
+    margin-right: 2rem;
+  }
+
+  .fa-facebook-official {
+    color: var(--color-facebook-icon);
+  }
+
+  .fa-twitter-square {
+    color: var(--color-twitter-icon);
+  }
+
+  .fa-google {
+    color: var(--color-google-icon);
+  }
+
+  /* invalid form button state */
+
+  .btn.disabled,
+  .btn[disabled],
+  fieldset[disabled] .btn {
+    cursor: not-allowed;
+  }
+
+  /* form invalid Angularjs */
+  .form-control.ng-dirty.ng-invalid,
+  form.show-status.ng-dirty.ng-invalid {
+    border-bottom: 4px solid var(--color-error-red);
+  }
+
+  /* Error messages */
+
+  .span--error {
+    font-size: 1.5rem;
+    color: var(--color-error-red) !important;
+    font-weight: inherit;
+  }
+</style>

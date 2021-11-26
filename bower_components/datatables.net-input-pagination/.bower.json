@@ -1,0 +1,13 @@
+{
+  "name": "datatables.net-input-pagination",
+  "_cacheHeaders": {
+    "ETag": "W/\"2df02ce03a01cb80e5482c6b8aba34b1c51dc5c357a96dac88aa238716ff21e6\"",
+    "Content-Length": "2188",
+    "Content-Type": "text/plain; charset=utf-8"
+  },
+  "_release": "e-tag:W/\"2df02ce",
+  "main": "index.js",
+  "_source": "https://raw.githubusercontent.com/sprattek/Plugins/master/pagination/input.js",
+  "_target": "*",
+  "_originalSource": "https://raw.githubusercontent.com/sprattek/Plugins/master/pagination/input.js"
+}

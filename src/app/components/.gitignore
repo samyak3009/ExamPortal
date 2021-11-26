@@ -1,0 +1,10 @@
+node_modules/
+bower_components/
+coverage/
+.sass-cache/
+.idea/
+.tmp/
+dist/
+src/app/components/services/BaseUrl.js
+venv/
+src/app/components/services/BaseUrl_Files.js

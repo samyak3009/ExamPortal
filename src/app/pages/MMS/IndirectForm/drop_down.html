@@ -1,0 +1,11 @@
+<!-- <div class="col-md-6"> -->
+<select ng-model="x.answer" class="form-control" uib-tooltip="{{x.info}}" ng-options="i as i for i in x.options" data-placement="right" ng-if="!x.answerable"   name="" id="">
+<option value="" disabled selected>choose one</option>
+</select>
+<!-- </div> -->
+
+<span ng-if="x.isremarks == true">
+    <br>
+    <textarea placeholder="Remarks"  ng-model="x.remarks" class="remarks form-control" name="" id="" cols="30" rows="10"></textarea>
+</span>
+<br>

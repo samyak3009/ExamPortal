@@ -1,0 +1,324 @@
+<!-- <div class="task-container"> -->
+<!-- <span class="hover_questions"> -->
+
+<div ng-if="x.type == 'input'" class="hover_questions">
+  <div class="col-md-{{x.width-1}}" ng-if="x.category == 'text'">
+    <span ng-if="x.answerable" ng-bind-html="x.label"></span>
+    <span ng-if="!x.answerable" ng-if="!x.answerable" class="question"
+      ><span class="ques_label" ng-bind-html="x.label" for=""></span
+      ><span ng-if="x.mand" style="color: red"> &nbsp;*</span></span
+    >
+    <span ng-if="x.max_marks != null" style="color: green;" class="pull-right"><strong>[ Marks - {{x.max_marks}} ]</strong></span>
+    <div ng-include src="'app/pages/MMS/createActivityForm/text.html'"></div>
+    <br />
+  </div>
+
+  <!-- //////////////////////////////////// -->
+
+  <div class="col-md-{{x.width-1}}" ng-if="x.category == 'email'">
+    <span ng-if="x.answerable" ng-bind-html="x.label"></span>
+    <span ng-if="!x.answerable" class="question"
+      ><span class="ques_label" ng-bind-html="x.label" for=""></span
+      ><span ng-if="x.mand" style="color: red"> &nbsp;*</span></span
+    >
+    <span ng-if="x.max_marks != null" style="color: green;" class="pull-right"><strong>[ Marks - {{x.max_marks}} ]</strong></span>
+    <div ng-include src="'app/pages/MMS/createActivityForm/email.html'"></div>
+    <br />
+  </div>
+
+  <!-- //////////////////////////////////// -->
+
+  <div class="col-md-{{x.width-1}}" ng-if="x.category == 'number'">
+    <span ng-if="x.answerable" ng-bind-html="x.label"></span>
+    <span ng-if="!x.answerable" class="question"
+      ><span class="ques_label" ng-bind-html="x.label" for=""></span
+      ><span ng-if="x.mand" style="color: red"> &nbsp;*</span></span
+    >
+    <span ng-if="x.max_marks != null" style="color: green;" class="pull-right"><strong>[ Marks - {{x.max_marks}} ]</strong></span>
+    <div ng-include src="'app/pages/MMS/createActivityForm/number.html'"></div>
+    <br />
+  </div>
+
+  <!-- //////////////////////////////////// -->
+
+  <div class="col-md-{{x.width-1}}" ng-if="x.category == 'paragraph'">
+    <span ng-if="x.answerable" ng-bind-html="x.label"></span>
+    <span ng-if="!x.answerable" class="question"
+      ><span class="ques_label" ng-bind-html="x.label" for=""></span
+      ><span ng-if="x.mand" style="color: red"> &nbsp;*</span></span
+    >
+    <span ng-if="x.max_marks != null" style="color: green;" class="pull-right"><strong>[ Marks - {{x.max_marks}} ]</strong></span>
+    <div
+      ng-include
+      src="'app/pages/MMS/createActivityForm/paragraph.html'"
+    ></div>
+    <br />
+  </div>
+
+  <!-- ////////////////////////////////////////////// -->
+
+  <div ng-if="x.category == 'radio'">
+    <div class="col-md-11">
+      <span ng-if="x.answerable" ng-bind-html="x.label"></span>
+      <span ng-if="!x.answerable" class="question"
+        ><span class="ques_label" ng-bind-html="x.label" for=""></span
+        ><span ng-if="x.mand" style="color: red"> &nbsp;*</span></span
+      >
+      <span ng-if="x.max_marks != null" style="color: green;" class="pull-right"><strong>[ Marks - {{x.max_marks}} ]</strong></span>
+    </div>
+    <div
+      ng-if="x.category == 'radio'"
+      class="btn-toolbar formBtn mb-10 col-md-1"
+    >
+      <div class="btn-group" uib-dropdown>
+        <button class="btn btn-transparent" uib-dropdown-toggle>
+          <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+        </button>
+        <ul
+          class="dropdown-menu dropdown-menu-custom"
+          uib-dropdown-menu
+          role="menu"
+        >
+          <li role="menuitem">
+            <a ng-click="vm.moveUp(x.element_id)"
+              ><i class="fa fa-angle-up"></i> Move Up
+            </a>
+          </li>
+          <li role="menuitem">
+            <a ng-click="vm.deleteElement(x.element_id)"
+              ><i class="fa fa-trash"></i> Delete
+            </a>
+          </li>
+          <li role="menuitem">
+            <a ng-click="vm.editElement(x.element_id)"
+              ><i class="fa fa-edit"></i> Edit
+            </a>
+          </li>
+          <li role="menuitem">
+            <a ng-click="vm.moveDown(x.element_id)"
+              ><i class="fa fa-angle-down"></i> Move Down
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <br />
+    <div class="row">
+      <div ng-repeat="y in x.options track by $index" class="col-md-6">
+        <div class="row">
+          <!-- <div class="col-md-6">
+                            <label for="">{{$index+1}} ) {{y}}</label>
+                        </div> -->
+          <div
+            class="col-md-6"
+            ng-include
+            src="'app/pages/MMS/createActivityForm/radio.html'"
+          ></div>
+        </div>
+      </div>
+    </div>
+
+    <span ng-if="x.isremarks == true">
+      <br />
+      <textarea
+        placeholder="Remarks"
+        ng-model="x.remarks"
+        class="remarks form-control"
+        name=""
+        id=""
+        cols="30"
+        rows="10"
+      ></textarea>
+    </span>
+    <br />
+  </div>
+
+  <!-- //////////////////////////////////// -->
+
+  <div ng-if="x.category == 'checkbox'">
+    <div class="col-md-11">
+      <span ng-if="x.answerable" ng-bind-html="x.label"></span>
+      <span ng-if="!x.answerable" class="question">
+        <span class="ques_label" ng-bind-html="x.label" for=""></span
+        ><span ng-if="x.mand" style="color: red"> &nbsp;*</span></span
+      >
+      <span ng-if="x.max_marks != null" style="color: green;" class="pull-right"><strong>[ Marks - {{x.max_marks}} ]</strong></span>
+    </div>
+    <div
+      ng-if="x.category == 'checkbox'"
+      class="btn-toolbar formBtn mb-10 col-md-1"
+    >
+      <div class="btn-group" uib-dropdown>
+        <button class="btn btn-transparent" uib-dropdown-toggle>
+          <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+        </button>
+        <ul
+          class="dropdown-menu dropdown-menu-custom"
+          uib-dropdown-menu
+          role="menu"
+        >
+          <li role="menuitem">
+            <a ng-click="vm.moveUp(x.element_id)"
+              ><i class="fa fa-angle-up"></i> Move Up
+            </a>
+          </li>
+          <li role="menuitem">
+            <a ng-click="vm.deleteElement(x.element_id)"
+              ><i class="fa fa-trash"></i> Delete
+            </a>
+          </li>
+          <li role="menuitem">
+            <a ng-click="vm.editElement(x.element_id)"
+              ><i class="fa fa-edit"></i> Edit
+            </a>
+          </li>
+          <li role="menuitem">
+            <a ng-click="vm.moveDown(x.element_id)"
+              ><i class="fa fa-angle-down"></i> Move Down
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <br />
+    <div class="row">
+      <div ng-repeat="y in x.options track by $index" class="col-md-6">
+        <!-- <div class="row">
+                        <div class="col-md-6">
+                            <label for="">{{$index+1}} ) {{y}}</label>
+                        </div> -->
+        <div class="row">
+          <div
+            class="col-md-6"
+            ng-include
+            src="'app/pages/MMS/createActivityForm/checkbox.html'"
+          ></div>
+        </div>
+        <!-- </div> -->
+      </div>
+    </div>
+
+    <span ng-if="x.isremarks == true">
+      <br />
+      <textarea
+        placeholder="Remarks"
+        ng-model="x.remarks"
+        class="remarks form-control"
+        name=""
+        id=""
+        cols="30"
+        rows="10"
+      ></textarea>
+    </span>
+    <br />
+  </div>
+
+  <!-- //////////////////////////////////////////////////////// -->
+
+  <div class="col-md-{{x.width-1}}" ng-if="x.category == 'date'">
+    <span ng-if="x.answerable" ng-bind-html="x.label"></span>
+    <span ng-if="!x.answerable" class="question">
+      <span class="ques_label" ng-bind-html="x.label" for=""></span
+      ><span ng-if="x.mand" style="color: red"> &nbsp;*</span></span
+    >
+    <span ng-if="x.max_marks != null" style="color: green;" class="pull-right"><strong>[ Marks - {{x.max_marks}} ]</strong></span>
+    <div
+      class="input-group w-md"
+      ng-controller="DatepickerPopupController as ctrl"
+      ng-include
+      src="'app/pages/MMS/createActivityForm/date.html'"
+    ></div>
+    <br />
+  </div>
+
+  <!-- ////////////////////////////////////////////////////////// -->
+
+  <div class="col-md-{{x.width-1}}" ng-if="x.category == 'file'">
+    <span ng-if="x.answerable" ng-bind-html="x.label"></span>
+    <span ng-if="!x.answerable" class="question"
+      ><span class="ques_label" ng-bind-html="x.label" for=""></span
+      ><span ng-if="x.mand" style="color: red"> &nbsp;*</span></span
+    >
+    <span ng-if="x.max_marks != null" style="color: green;" class="pull-right"><strong>[ Marks - {{x.max_marks}} ]</strong></span>
+    <div ng-include src="'app/pages/MMS/createActivityForm/file.html'"></div>
+    <br />
+  </div>
+
+  <!-- ////////////////////////////////// -->
+</div>
+
+<!-- /////////////////////////////////////////// -->
+
+<div class="col-md-{{x.width-1}}" ng-if="x.category == 'slider'">
+  <span ng-if="x.answerable" ng-bind-html="x.label"></span>
+  <span ng-if="!x.answerable" class="question"
+    ><span class="ques_label" ng-bind-html="x.label" for=""></span
+    ><span ng-if="x.mand" style="color: red"> &nbsp;*</span></span
+  >
+  <span ng-if="x.max_marks != null" style="color: green;" class="pull-right"><strong>[ Marks - {{x.max_marks}} ]</strong></span>
+  <div ng-include src="'app/pages/MMS/createActivityForm/slider.html'"></div>
+  <br />
+</div>
+
+<!-- //////////////////////////////////// -->
+
+<div class="col-md-{{x.width-1}}" ng-if="x.type == 'dropdown'">
+  <span ng-if="x.answerable" ng-bind-html="x.label"></span>
+  <span ng-if="!x.answerable" class="question">
+    <span class="ques_label" ng-bind-html="x.label" for=""></span
+    ><span ng-if="x.mand" style="color: red"> &nbsp;*</span></span
+  >
+  <span ng-if="x.max_marks != null" style="color: green;" class="pull-right"><strong>[ Marks - {{x.max_marks}} ]</strong></span>
+  <div ng-include src="'app/pages/MMS/createActivityForm/dropdown.html'"></div>
+  <br />
+</div>
+
+<!-- <div ng-if="x.category != 'checkbox' && x.category != 'radio'" class="btn-toolbar formBtn col-md-2" role="toolbar">
+    <div class="btn-group btn-group-rounded-20">
+      <button ng-click="vm.moveUp(x.element_id)"  type="button" class="btn btn-default"><i class="fa fa-angle-up"></i> </button>
+      <button ng-click="vm.deleteElement(x.element_id)" type="button" class="btn btn-default"><i class="fa fa-trash"></i> </button>
+      <button ng-click="vm.editElement(x.element_id)" type="button" class="btn btn-default"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></button>
+      <button ng-click="vm.moveDown(x.element_id)" type="button" class="btn btn-default"><i class="fa fa-angle-down"></i> </button>
+    </div>
+  </div> -->
+
+<div
+  ng-if="x.category != 'checkbox' && x.category != 'radio'"
+  class="controls col-md-1"
+>
+  <div class="btn-group" uib-dropdown>
+    <button class="btn btn-transparent" uib-dropdown-toggle>
+      <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+    </button>
+    <ul
+      class="dropdown-menu dropdown-menu-custom"
+      uib-dropdown-menu
+      role="menu"
+    >
+      <li role="menuitem">
+        <a ng-click="vm.moveUp(x.element_id)"
+          ><i class="fa fa-angle-up"></i> Move Up
+        </a>
+      </li>
+      <li role="menuitem">
+        <a ng-click="vm.deleteElement(x.element_id)"
+          ><i class="fa fa-trash"></i> Delete
+        </a>
+      </li>
+      <li role="menuitem">
+        <a ng-click="vm.editElement(x.element_id)"
+          ><i class="fa fa-edit"></i> Edit
+        </a>
+      </li>
+      <li role="menuitem">
+        <a ng-click="vm.moveDown(x.element_id)"
+          ><i class="fa fa-angle-down"></i> Move Down
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- </span> -->

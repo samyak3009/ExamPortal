@@ -1,0 +1,22 @@
+<!-- <label class="checkbox minotaur-checkbox"> {{x.label}}<span ng-if='x.mand' style="color: red;"> *</span>
+    <input type="checkbox" uib-tooltip="{{x.info}}">
+    <div class="input-indicator"></div>
+  </label> -->
+
+<!-- <div class="col-md-6"> -->
+<label
+  ng-if="!x.answerable"
+  style="font-weight: 400"
+  class="checkbox minotaur-checkbox"
+  >{{$index+1}} ) {{y}}
+  <input
+    type="checkbox"
+    ng-value="{{y}}"
+    ng-model="x.answer[$index]"
+    uib-tooltip="{{x.info}}"
+  />
+  <div class="input-indicator"></div>
+</label>
+<!-- </div> -->
+
+<br />

@@ -1,0 +1,262 @@
+<style>
+  input[type="radio"] {
+    width: 25px;
+    height: 25px;
+  }
+
+  .task-container {
+    cursor: default !important;
+  }
+
+  label {
+    font-weight: 1000;
+  }
+
+  /* .hover_questions:hover{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
+  transition: 0.5s linear;
+
+} */
+  .ques_label {
+    font-size: 1.3em;
+    font-weight: 700;
+  }
+
+  .mainTile {
+    padding: 50px !important;
+  }
+
+  uib-accordion {
+    padding: 10px;
+  }
+
+.question{
+  display: inline-flex;
+}
+
+  /* .option{
+   padding:0px !important;
+ } */
+  /* .formBtn{
+    margin-top: 40px !important;
+  } */
+  .remarks {
+    max-height: 70px;
+  }
+
+  .ta-editor.ta-html,
+  .ta-scroll-window.form-control {
+    min-height: 150px !important;
+  }
+
+  .ta-scroll-window>.ta-bind {
+    min-height: 150px;
+  }
+
+
+  .element_select {
+    height: 50px;
+  }
+
+  .element_btn {
+    width: 150px;
+    margin-bottom: 25px !important;
+  }
+
+  .element_row {
+    margin-bottom: 2%;
+  }
+
+  .question_area {
+    /* border: 3px solid black; */
+    padding: 20px;
+    width: 95%;
+    margin: auto;
+  }
+
+  .panel-heading {
+    padding: 0.5px 10px !important;
+  }
+
+  .custom{
+    width: 200px;
+    padding: 10px;
+}
+
+  .task-container1 {
+    border-radius: 5px;
+    padding: 2%;
+    border-left: 4px solid #3899d0;
+
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+    /* padding: 15px; */
+    background-color: white;
+    margin-bottom: 15px;
+    /* border-left: 3px solid; */
+    position: relative;
+    transition: all 0.25s linear;
+  }
+
+  .step2 table,
+  .step2 tr,
+  .step2 td,
+  .step2 th {
+    /* height: 500px; */
+    border: 1px solid rgb(179, 171, 171) !important;
+    vertical-align: middle !important;
+  }
+</style>
+
+
+<!-- <div class="page page-forms pull-to-header"> -->
+<div>
+  <section ng-if="vm.Formsteps" class="tile" print-remove>
+    <!-- <section ng-if="true" class="tile" print-remove> -->
+    <h3 class="alert alert-info heading">CREATE INTERNAL FACULTY SURVEY</h3>
+    <section class="tile-body">
+      <span>
+
+
+        <div class="text-center"><span style="font-size: 22px; font-weight: bolder;">KIET Group of Institutions</span>
+        </div>
+
+        <div class="row" style="margin-top: 10px;  margin-bottom: 15px;">
+          <div class="text-center font_head"><span class="border_btm"><b>{{vm.heading_survey}}</b></span></div>
+        </div>
+
+        <!-- <div class="row" style="margin-top: 10px; margin-bottom: 15px;">
+          <div class="text-center font_head"><span class="border_btm"><b>Category :-
+                {{vm.category}}</b></span></div>
+        </div> -->
+        <div style="border: 1px solid black"></div>
+        <br>
+        <div class="row">
+          <div class="col-md-6" style="padding: 0;">
+            <div class="col-md-2 text-center" style="font-size: 16px; padding-right: 0; "><b>Note:- </b></div>
+            <div class="col-md-10 text-left Padding_TL">
+              <ul class="list-type caret-right Padding_TL" style="margin-top:-1px;">
+                <li class="Padding_TL">Click on plus button to add new question.</li>
+                <li class="Padding_TL">In step 1 select the type of question.</li>
+                <li class="Padding_TL">In step 2 fill the necessary attributes of selected question.</li>
+                <li class="Padding_TL">After completion click on submit button at the bottom of the page.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <br>
+
+        <div class="row">
+          <div style="padding: 27px;" class="col-md-12">
+            <span style="float: right;">
+              <span style="color:#FF0066;"><b>Clear form</b></span>
+              <a href class="icon icon-hotpink icon-ef-9 icon-color" ng-click="vm.clearForm()"><i class="fa fa-trash"></i></a>
+            </span>
+          </div>
+        </div>
+
+        <div class="row mainTile">
+          <div ng-repeat="x in vm.forms track by $index" ng-include src="'app/pages/MMS/mms_survey_form/createIndirectForm/form.html'">
+          </div>
+        </div>
+        <!-- <div style="position: absolute; left: 39.5%;" class="row" ng-if="vm.editOld">
+          <div class="btn-toolbar mb-10" role="toolbar">
+            <div class="btn-group btn-group-rounded-20">
+              <button type="button" class="btn btn-default custom" ng-click="vm.getOldJson()">Edit old form</button>
+              <button type="button" class="btn btn-default custom" ng-click="vm.newForm()">Create new form</button>
+            </div>
+          </div>
+        </div> -->
+
+        <div class="col-md-12" ng-if="vm.btnForm">
+          <span style="float: right;">
+            <span style="color:#099ae3;"><b>Add Ques.</b></span>
+            <a href class="icon icon-cyan icon-ef-4 icon-ef-4b icon-color" style="color:#099ae3;"
+              ng-click="vm.ShowQues('form')"><i class="fa fa-plus"></i></a>
+          </span>
+
+        </div>
+
+        <br>
+        <br>
+
+        <span ng-if="vm.AddForm">
+          <div ng-include src="'app/pages/MMS/mms_survey_form/createIndirectForm/addQuestion.html'"></div>
+        </span>
+
+
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+        <br>
+
+        <div class="row" >
+          <div class="col-md-12">
+            <center><button ng-click="vm.sendJson()" class="btn btn-primary">Submit</button></center>
+
+          </div>
+        </div>
+        <br>
+        <br>
+
+      </span>
+
+      <!-- /////////////////////////////////////////// -->
+
+
+      <!-- ////////////////////////////////////// -->
+
+
+    </section>
+  </section>
+
+  <!-- <button class="btn btn-primary btn-border btn-rounded-20 btn-ef btn-ef-4 btn-ef-4b mb-10" ng-click="vm.hideviewPrevious()"> View Previous <i class="fa fa-arrow-down"></i></button> -->
+  <!-- <br> -->
+  
+    <section ng-if="vm.viewPrevious" class="tile" print-remove>
+      <h3 class="alert alert-info heading">PREVIOUS SURVEY FORMS</h3>
+      <section class="tile-body">
+  
+        <table ng-table="vm.tableParams" class="table minotaur-table ng-table-rowselected">
+              
+          <!-- <tr ng-repeat = "x in $data"> -->
+          <tr ng-repeat = "x in vm.data">
+            <td data-title="'Sno.'" >
+              {{$index+1}}
+            </td>
+             <td data-title="'Survey Name'" data-sortable="'survey_id__value'" filter="{ 'survey_id__value': 'text' }">
+              {{x.survey_id__value}}
+            </td>
+            <td data-title="'Department'" data-sortable="'dept__dept_id__value'" filter="{ 'dept__dept_id__value': 'text' }">
+              {{x.dept__dept_id__value}}
+            </td>
+            <td data-title="'Category'" data-sortable="'category__value'" filter="{ 'category__value': 'text' }">
+              {{x.category__value}}
+            </td>
+            <td data-title="'Created By'" data-sortable="'creater'" filter="{ 'creater': 'text' }">
+              {{x.creater}}
+            </td>
+            <!-- <td data-title="'Session'" data-sortable="'session__session_name'" filter="{ 'session__session_name': 'text' }">
+              {{x.session__session_name}}
+            </td> -->
+             <!-- <td data-title="'Batch From'" data-sortable="'batch_from'" filter="{ 'batch_from': 'number' }">
+              {{x.batch_from}}
+            </td>
+            <td data-title="'Batch To'" data-sortable="'batch_to'" filter="{ 'batch_to': 'number' }">
+              {{x.batch_to}}
+            </td> -->
+            <td data-title="'View Survey'">
+              <!-- <button type="button" class="btn btn-default mb-10" activate-button ng-click="vm.getOldJson(x.survey_id, x.dept, x.batch_from, x.batch_to, x.session)">view</button> -->
+              <button type="button" class="btn btn-default mb-10" activate-button ng-click="vm.getOldJson(x.id, x.survey_id__value)">view</button>
+            </td>
+            <td data-title="'Delete Survey'">
+              <button type="button" class="btn btn-danger mb-10" activate-button ng-click=vm.deleteSurvey(x.id)><i class="fa fa-trash"></i> delete</button>
+            </td>
+             
+          </tr>
+        </table>
+  
+        </section>
+        </section>
+
+
+</div>

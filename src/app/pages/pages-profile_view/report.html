@@ -1,0 +1,301 @@
+<div class="page page-forms pull-to-header ">
+<ol class="breadcrumb bg-white">
+<li><a ui-sref="dashboard">Home</a></li>
+<li><a href="javascript:;">Report</a></li>
+<li class="active">Report</li>
+</ol>
+<!--<div class="container">-->
+<div class="tile" ng-hide="vm.show">  <!--   -->
+<section class="tile-body">
+
+<h3 class="alert alert-info heading">
+Faculty Info
+</h3>
+</section>
+
+
+
+
+
+
+
+<div  style="margin-left: 2%; margin-right:2%; ">
+<div class="row" ng-show="vm.show">
+
+
+    <!-- col -->
+    <div class="col-md-4" >
+
+
+      <!-- tile -->
+      <div class="tile ng-scope portlet bg-primary" ng-controller="reportController">
+
+        <!-- tile header -->
+        <section class="tile-header ">
+          <h1 class="heading" style="font-size:150%;">Welcome {{vm.details1.names.name_n_join_date_contact[0].nme}}!</h1>
+          
+           
+        </section>
+        <!-- /tile header -->
+
+        <!-- tile widget -->
+        
+        <!-- /tile widget -->
+        <section class="tile-body bg-white" style="height:300px; ">
+        	<img src="{{vm.details1.names.personal_details[0].image}}" alt="image">
+        </section>
+        
+
+      </div>
+      <!-- /tile -->
+
+
+
+    </div>
+    <!-- /col -->
+
+
+
+
+    <!-- col -->
+    
+
+
+
+      <!-- tile -->
+      
+        <div class="col-md-8 portlets "  >
+
+
+
+      <!-- tile -->
+      <div class="tile portlet bg-primary" >
+
+        <!-- tile header -->
+        <section class="tile-header">
+          <h1 class="heading">Basic Information</h1>
+          
+          
+        </section>
+    
+      
+        <!-- /tile header -->
+		<!-- tile body -->
+        
+        
+       
+		<!-- tile body -->
+        <section class="tile-body bg-white" style="color: black;font-size: 150%; height: 250px; position: inherit;overflow-y: auto;">
+        	
+        	<div class="table-responsive">
+         		<table class="table">
+         			<tr >
+              	<td><strong>Name:</strong></td>
+              <td>{{vm.details1.names.name_n_join_date_contact[0].nme}}</td>
+              <td><strong>Title </strong></td>
+              <td>{{vm.details1.names.title_value[0].title_name}}</td>
+              </tr>
+            	<tr>
+              <td><strong>Designation:</strong></td>
+             <td> {{vm.details1.names.dsgn_value[0].dsgn_name}}</td>
+              
+
+             <td><strong> Department:</strong></td>
+              <td>{{vm.details1.names.dept_value[0].dept_name}}</td>
+            </tr>
+            <tr>
+             <td><strong>Employee Id:</strong></td>
+              <td>{{vm.details1.pmail}}</td>
+              
+             <td><strong>Mobile No.:</strong></td>
+              <td>{{vm.details1.names.name_n_join_date_contact[0].primary_mobile}}</td>
+          </tr>
+            <tr>
+            	<td><strong>Employee Category:</strong></td>
+            	<td>{{vm.details1.names.coe_value[0].coe_name}}</td>
+            	<td><strong>Shift: </strong></td>
+            	<td>{{vm.details1.names.sft_value[0].sft_name}}</td>
+            </tr>
+            
+            </table>
+        </div>
+            
+        </section>
+        <!-- /tile body -->
+
+      </div>
+      <!-- /tile -->
+        
+
+    </div>
+      <!-- /tile -->
+
+    	
+</div>
+
+    <!-- /col -->
+
+
+
+
+  
+  
+<div class="tile" style="position: inherit;">
+ <div class="tile " ng-show="vm.show">
+ 	<div >
+	<section class="tile-body">
+		<div class="table-responsive">
+			 <table class="table">
+           
+            <tbody style="font-size: 150%; color: black;overflow-x: auto;">
+            	
+            <tr class="danger">
+            	<td><strong>Type of employment</strong></td>
+            	<td>{{vm.details1.names.toe_value[0].toe_name}}</td>
+            	<td><strong>Date of joining</strong></td>
+            	<td>{{vm.details1.names.name_n_join_date_contact[0].date_joining}}</td>
+            </tr>
+            <tr>
+            	<td><strong>Join at position</strong></td>
+            	<td>{{vm.details1.data_d.pos_d[0].pos}}</td>
+            	<td><strong>Current Position</strong></td>
+            	<td>{{vm.details1.names.pos.val[0].pos_value}}</td>
+            </tr>
+            <tr class="success">
+            	
+            	<td><strong>Email Id</strong></td>
+            	<td>{{vm.details1.names.name_n_join_date_contact[0].mail}}</td>
+            	<td></td>
+            	<td></td>
+            </tr>
+            
+
+
+
+        </tbody>
+    </table>
+
+
+	</section>
+</div>
+</div>
+</div>
+
+<div class="tile portlet bg-primary" ng-show="vm.show" style="position: inherit;">
+	<div class="fluid-container">
+	 <section class="tile-header">
+          <h1 class="heading" style="text-align: center;">Reporting Information</h1>
+         
+        </section>
+	<section class="tile-body bg-white" style="font-size: 150%; color: black;overflow-x: auto;">
+		<table class="table ">
+			<tr ng-repeat="x in vm.details1.names.reporting_level.ids " ng-class="vm.sh[{{x.reporting_level}}]" | unique:  >
+
+            	<td><strong> Reporting level {{x.reporting_level}}</strong></td>
+            	<td>{{x.department}}</td>
+            	<td>{{x.designation}}</td>
+            </tr>
+		</table>
+	</section>
+</div>
+</div>
+
+
+
+<div class="tile portlet bg-primary" ng-show="vm.show"  style="position: inherit;">
+	<div class="fluid-container">
+
+	 <section class="tile-header">
+          <h1 class="heading" style="text-align: center;" >Correspondance Address</h1>
+         
+        </section>
+        <section class="tile-body bg-white" style="font-size: 150%; color: black;overflow-x: auto;">
+        	<div class="table-responsive">
+		<table class="table " >
+			<tr class="danger">
+				<td><strong>Address Line 1</strong></td>
+				<td>{{vm.details1.names.residential_details[0].corresp_add_1}}</td>
+				<td><strong>Address Line 2</strong></td>
+				<td>{{vm.details1.names.residential_details[0].corresp_add_2}}</td>
+			</tr>
+			 <tr>
+				
+				<td><strong>City</strong></td>
+				<td>{{vm.details1.names.residential_details[0].corresp_place}}</td>
+				<td><strong>District</strong></td>
+				<td>{{vm.details1.names.residential_details[0].corresp_district}}</td>
+			</tr>
+			<tr class="active">
+				<td><strong>State</strong></td>
+				<td>{{vm.details1.names.residential_details[0].corresp_state}}</td>
+				<td><strong>Pincode</strong></td>
+				<td>{{vm.details1.names.residential_details[0].corresp_pin}}</td>
+			</tr>
+		</table>
+	</div>
+	</section>
+</div>
+</div>
+
+<div class="tile portlet bg-primary" ng-show="vm.show"  style="position: inherit;">
+	<div class="fluid-container">
+	 <section class="tile-header">
+          <h1 class="heading" style="text-align: center;">Permanent Address</h1>
+         
+        </section>
+        <section class="tile-body bg-white" style="font-size: 150%;color: black;overflow-x: auto;">
+        	<div class="table-responsive">
+		<table class="table ">
+			<tr class="danger">
+				<td><strong>Address Line 1</strong></td>
+				<td>{{vm.details1.names.residential_details[0].permanent_add_1}}</td>
+				<td><strong>Address Line 2</strong></td>
+				<td>{{vm.details1.names.residential_details[0].permanent_add_2}}</td>
+			</tr>
+			<tr>
+			<td><strong>City</strong></td>
+			<td>{{vm.details1.names.residential_details[0].place}}</td>
+			<td><strong>District</strong></td>
+			<td>{{vm.details1.names.residential_details[0].district}}</td>
+		</tr>
+		<tr class="info">
+			<td><strong>State</strong></td>
+			<td>{{vm.details1.names.residential_details[0].state}}</td>
+			<td><strong>Pincode</strong></td>
+			<td>{{vm.details1.names.residential_details[0].pin}}</td>
+		</tr>
+			</table>
+		</div>
+		</section>
+	</div>
+	</div>
+	<div class="tile portlet bg-primary" ng-show="vm.show"  style="position: inherit;">
+		<div class="fluid-container">
+	 <section class="tile-header">
+          <h1 class="heading" style="text-align: center;" >Contact Info</h1>
+         
+        </section>
+        <section class="tile-body bg-white" style="font-size: 150%; color: black;">
+        	<div class="table-responsive">
+		<table class="table ">
+			<tr class="warning">
+				<td><strong>Facebook</strong></td>
+				<td>-</td>
+				<td><strong>Gmail</strong></td>
+				<td>-</td>
+			</tr>
+				<tr>
+				<td><strong>Linkedin</strong></td>
+				<td>-</td>
+				<td><strong>Area of Interest</strong></td>
+				<td>-</td>
+			</tr>
+		</table>
+	</div>
+	</section>
+</div>
+</div>
+</div>
+ <div>
+
+ </div>

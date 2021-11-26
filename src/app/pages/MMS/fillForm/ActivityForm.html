@@ -1,0 +1,174 @@
+<style>
+  input[type="radio"] {
+    width: 25px;
+    height: 25px;
+  }
+  .task-container {
+    cursor: default !important;
+  }
+  label {
+    font-weight: 1000;
+  }
+  .ques_label {
+    font-size: 1.3em;
+    font-weight: 700;
+  }
+  .question {
+    display: inline-flex;
+  }
+  .remarks {
+    max-height: 70px;
+  }
+
+  .ta-editor.ta-html,
+  .ta-scroll-window.form-control {
+    min-height: 150px !important;
+  }
+
+  .ta-scroll-window > .ta-bind {
+    min-height: 150px;
+  }
+
+  .formTile {
+    padding: 50px !important;
+  }
+
+  .task-container1 {
+    border-radius: 5px;
+    padding: 2%;
+    border-left: 4px solid #3899d0;
+
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+    /* padding: 15px; */
+    background-color: white;
+    margin-bottom: 15px;
+    /* border-left: 3px solid; */
+    position: relative;
+    transition: all 0.25s linear;
+  }
+</style>
+
+<div class="controller">
+  <div class="row">
+    <div class="col-sm-0 col-md-1 col-lg-2"></div>
+    <div class="col-sm-12 col-md-10 col-lg-8">
+      <div class="page page-forms pull-to-header" style="padding-top: 0">
+        <!-- <section class="tile" print-remove ng-if="vm.mainForm"> -->
+        <section class="tile" print-remove>
+          <h3 class="alert alert-info heading">
+            EXAM 
+          </h3>
+          <section class="tile-body">
+            <div class="row">
+              <span
+                style="font-weight: 700; font-size: 18px; color: red"
+                class="pull-right"
+                >{{vm.countdown}}</span
+              >
+            </div>
+            <div class="text-center">
+              <span style="font-size: 22px; font-weight: bolder">
+                {{vm.formJson1.course}} - {{vm.formJson1.subject}}
+              </span>
+            </div>
+
+            <div class="row" style="margin-top: 10px">
+              <div class="text-center font_head">
+                <span class="border_btm h5"
+                  ><b>{{vm.formJson1.exam_title}}</b></span
+                >
+              </div>
+            </div>
+
+            <div
+              class="row"
+              style="margin-top: 10px; margin-bottom: 15px; padding-right: 20px"
+            >
+              <!-- <div class="text-center font_head">
+                <span class="pull-right border_btm"
+                  ><b>MAX. MARKS : {{vm.formMarks}}</b></span
+                >
+              </div> -->
+            </div>
+
+            <div style="border: 1px solid black"></div>
+            <br />
+            <div class="row">
+              <div class="col-md-6" style="padding: 0">
+                <div
+                  class="col-md-2 text-center"
+                  style="font-size: 16px; padding-right: 0"
+                >
+                  <b>Note:- </b>
+                </div>
+                <div class="col-md-10 text-left Padding_TL">
+                  <ul
+                    class="list-type caret-right Padding_TL"
+                    style="margin-top: -1px"
+                  >
+                    <li class="Padding_TL">
+                      All <span style="color: red"></span> * marked questions
+                      are mandatory.
+                    </li>
+                    <li class="Padding_TL">
+                      After completing click on submit button.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <br />
+
+            <div class="row formTile">
+              <div
+                ng-repeat="x in vm.forms track by $index"
+                ng-include
+                src="'app/pages/MMS/fillForm/form.html'"
+              ></div>
+            </div>
+
+            <br />
+            <br />
+            <div class="row">
+              <div class="col-md-12">
+                <center>
+                  <button ng-click="vm.submit(false)" class="btn btn-primary">
+                    SUBMIT
+                  </button>
+                </center>
+                <br />
+              </div>
+            </div>
+          </section>
+        </section>
+        <!-- ===========================view previous=================================== -->
+
+        <script type="text/ng-template" id="mySplashContent.html">
+          <!-- <div class="modal-header" print-remove>
+            <h3 class="modal-title" ng-if="modal.status.type == 'ATTENDANCE'">Attendance {{modal.status.name}}</h3>
+          </div> -->
+          <div class="modal-body">
+            <div class="well table-responsive" print-remove>
+                  <button print-btn print-remove class="btn btn-link">
+                      <span class="glyphicon glyphicon-share"></span> Print From
+                  </button>
+            </div>
+            <uib-accordion print-section>
+                  <div uib-accordion-group class="" is-open="true" is-disabled="true">
+                    <div style="border: 0.5px solid black"></div>
+                    <br>
+                      <div ng-repeat="x in modal.status track by $index" ng-include src="'app/pages/MMS/fillForm/ViewForm.html'">
+                    <br>
+                    </div>
+                </div>
+              </uib-accordion>
+          </div>
+          <div class="modal-footer" print-remove>
+            <button class="btn btn-lightred btn-ef btn-ef-4 btn-ef-4c" ng-click="modal.cancel()"><i class="fa fa-arrow-left"></i> Close</button>
+          </div>
+        </script>
+      </div>
+    </div>
+    <div class="col-sm-0 col-md-1 col-lg-2"></div>
+  </div>
+</div>

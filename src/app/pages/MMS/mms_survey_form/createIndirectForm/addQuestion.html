@@ -1,0 +1,570 @@
+<uib-accordion ng-if="vm.ques_type">
+  <div class="panel-lightred" uib-accordion-group class="panel-default" is-open="true" is-disabled="true">
+    <uib-accordion-heading>
+      <div class="row">
+        <div class="col-md-6">
+          <h5 style="color: white;">STEP 1</h4> <i class="pull-right glyphicon"></i>
+        </div>
+        <!-- <div class="col-md-6">
+            <i style="float: right; color: white; padding-top: 5px;" ng-click="vm.closeQues()" class="fa fa-times"></i>
+        </div> -->
+        <div class="col-md-6">
+          <div class="btn-group" style="float:right" uib-dropdown>
+            <button class="btn btn-transparent" style="color: white;" uib-dropdown-toggle><i
+                class="fa fa-cog"></i></button>
+            <ul class="dropdown-menu dropdown-menu-custom" uib-dropdown-menu role="menu">
+              <li role="menuitem">
+                <a href="" ng-click="vm.closeQues()"><i class="fa fa-times" style="font-size:20px"></i>close</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </uib-accordion-heading>
+    <div class="row question_area">
+
+      <div class="col-md-4">
+        <center> <button ng-click="vm.newElement('text')"
+            class="element_btn btn btn-primary btn-ef btn-ef-3 btn-ef-3c mb-10">Text</button>
+        </center>
+      </div>
+      <div class="col-md-4">
+        <center><button ng-click="vm.newElement('number')"
+            class="element_btn btn btn-primary btn-ef btn-ef-3 btn-ef-3c mb-10">Number</button>
+        </center>
+      </div>
+
+      <div class="col-md-4">
+        <center><button ng-click="vm.newElement('email')"
+            class="element_btn btn btn-primary btn-ef btn-ef-3 btn-ef-3c mb-10">Email</button>
+        </center>
+      </div>
+
+      <div class="col-md-4">
+        <center><button ng-click="vm.newElement('dropdown')"
+            class="element_btn btn btn-primary btn-ef btn-ef-3 btn-ef-3c mb-10">Dropdown</button>
+        </center>
+      </div>
+
+      <div class="col-md-4">
+        <center><button ng-click="vm.newElement('paragraph')"
+            class="element_btn btn btn-primary btn-ef btn-ef-3 btn-ef-3c mb-10">Paragraph</button>
+        </center>
+      </div>
+
+      <div class="col-md-4">
+        <center><button ng-click="vm.newElement('radio')"
+            class="element_btn btn btn-primary btn-ef btn-ef-3 btn-ef-3c mb-10">Radio</button>
+        </center>
+      </div>
+
+      <div class="col-md-4">
+        <center><button ng-click="vm.newElement('checkbox')"
+            class="element_btn btn btn-primary btn-ef btn-ef-3 btn-ef-3c mb-10">Checkbox</button>
+        </center>
+      </div>
+
+      <div class="col-md-4">
+        <center><button ng-click="vm.newElement('date')"
+            class="element_btn btn btn-primary btn-ef btn-ef-3 btn-ef-3c mb-10">Date</button>
+        </center>
+      </div>
+
+      <div class="col-md-4">
+        <center><button ng-click="vm.newElement('slider')"
+            class="element_btn btn btn-primary btn-ef btn-ef-3 btn-ef-3c mb-10">Slider</button>
+        </center>
+      </div>
+
+      <div class="col-md-4">
+        <center><button ng-click="vm.newElement('file')"
+            class="element_btn btn btn-primary btn-ef btn-ef-3 btn-ef-3c mb-10">Image Upload</button>
+        </center>
+      </div>
+
+      <!-- <div class="col-md-4">
+        <center><button ng-click="vm.newElement('table')"
+            class="element_btn btn btn-primary btn-ef btn-ef-3 btn-ef-3c mb-10">Table</button>
+        </center>
+      </div> -->
+
+    </div>
+
+    <div class="row">
+      <div class="col-md-6" style="padding: 0;">
+        <div class="col-md-2 text-center" style="font-size: 16px; padding-right: 0; "><b>Note:- </b></div>
+        <div class="col-md-10 text-left Padding_TL">
+          <ul class="list-type caret-right Padding_TL" style="margin-top:-1px;">
+            <li class="Padding_TL" style="color: red;">Click on gear icon to cancel adding question.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</uib-accordion>
+
+<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<uib-accordion ng-if="vm.ques_attribute">
+  <div class="panel-lightred" uib-accordion-group class="panel-default" is-open="true" is-disabled="true">
+    <uib-accordion-heading>
+      <div class="row">
+        <div class="col-md-6">
+          <h5 style="color: white;text-transform: uppercase;">Step 2 ( {{vm.element}} )</h4> <i
+              class="pull-right glyphicon"></i>
+        </div>
+        <!-- <div class="col-md-6">
+                    <i style="float: right; color: white; padding-top: 5px;" ng-click="vm.closeQues()" class="fa fa-times"></i>
+                </div> -->
+        <div class="col-md-6" id="step2">
+          <div class="btn-group" style="float:right" uib-dropdown>
+            <button class="btn btn-transparent" style="color: white;" uib-dropdown-toggle><i
+                class="fa fa-cog"></i></button>
+            <ul class="dropdown-menu dropdown-menu-custom" uib-dropdown-menu role="menu">
+              <li role="menuitem">
+                <a href="" ng-click="vm.closeQues()"><i class="fa fa-times" style="font-size:20px"></i>close</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </uib-accordion-heading>
+    <div class="row question_area">
+
+
+      <table ng-if="vm.element != 'table'" class="table table-bordered step2">
+        <tr style="background-color: #000; color:white">
+          <th colspan="4">
+            <center><label for="">PREVIEW</label></center>
+          </th>
+        </tr>
+        <tr>
+          <td colspan="4" style="background-color: rgb(230, 224, 224);">
+            <label ng-bind-html="vm.demo_ques" for=""></label>
+            <label ng-if='vm.label == null || vm.label == undefined || vm.label == ""' for="">DEMO QUESTION</label>
+            <div class="row">
+              <div class="col-md-{{vm.widthSlider.value}}"><input class="form-control" type="text" name="" id=""></div>
+            </div>
+          </td>
+        </tr>
+
+
+        <tr style="background-color: #595959; color:white">
+          <th colspan="4">
+            <center><label for="">PROPERTIES</label></center>
+          </th>
+        </tr>
+
+        <tr>
+          <td style="background-color: rgb(240, 238, 238)">
+            <label for="">ENTER QUESTION</label><span style="color: red;"> *</span>
+          </td>
+          <td colspan="3">
+            <text-angular ng-blur="vm.previewQues()" ng-model="vm.label"
+              ta-toolbar="[['h1','h2','h3'],['bold','italics','underline','redo','undo'],['justifyLeft','justifyCenter','justifyRight'],['ul','ol']]">
+            </text-angular>
+
+          </td>
+        </tr>
+
+
+
+        <tr>
+          <td style="background-color: rgb(240, 238, 238)">
+            <label>Mandatory
+            </label>
+          </td>
+          <td>
+
+            <div class="onoffswitch primary inline-block">
+              <input type="checkbox" ng-model="vm.mandatory" name="mandatory" class="onoffswitch-checkbox"
+                id="mandatory" checked="" ng-change="vm.MandatoryTrue()">
+              <label class="onoffswitch-label" for="mandatory">
+                <span class="onoffswitch-inner"></span>
+                <span class="onoffswitch-switch"></span>
+              </label>
+            </div>
+          </td>
+
+
+          <td style="background-color: rgb(240, 238, 238)">
+            <label>Is the question not answerable?
+            </label>
+          </td>
+
+          <td>
+
+
+            <div class="onoffswitch primary inline-block">
+              <input type="checkbox"  ng-model="vm.answerable" name="answerable" class="onoffswitch-checkbox"
+                id="answerable" checked="" ng-change="vm.AnswerableTrue()">
+              <label class="onoffswitch-label" for="answerable">
+                <span class="onoffswitch-inner"></span>
+                <span class="onoffswitch-switch"></span>
+              </label>
+            </div>
+          </td>
+        </tr>
+
+
+        <tr ng-if= "vm.element != 'number' && vm.element != 'slider'">
+          <td style="background-color: rgb(240, 238, 238)">
+            <label>Remarks
+            </label>
+          </td>
+
+          <td colspan="3">
+            <div class="onoffswitch primary inline-block">
+              <input type="checkbox" ng-model="vm.remarks" name="remark" class="onoffswitch-checkbox" id="remark"
+                checked="">
+              <label class="onoffswitch-label" for="remark">
+                <span class="onoffswitch-inner"></span>
+                <span class="onoffswitch-switch"></span>
+              </label>
+            </div>
+          </td>
+        </tr>
+
+        <tr ng-if="vm.element == 'number' || vm.element == 'slider'">
+          <td style="background-color: rgb(240, 238, 238)">
+            <label>Remarks
+            </label>
+          </td>
+          <td>
+            <div class="onoffswitch primary inline-block">
+              <input type="checkbox" ng-model="vm.remarks" name="remark" class="onoffswitch-checkbox" id="remark"
+                checked="">
+              <label class="onoffswitch-label" for="remark">
+                <span class="onoffswitch-inner"></span>
+                <span class="onoffswitch-switch"></span>
+              </label>
+            </div>
+          </td>
+
+          <td style="background-color: rgb(240, 238, 238)">
+            <label>connect to PO
+            </label>
+          </td>
+          <td>
+
+
+            <div class="onoffswitch primary inline-block">
+              <input type="checkbox" ng-model="vm.poconnection" name="poconnection" class="onoffswitch-checkbox"
+                id="poconnection" checked="">
+              <label class="onoffswitch-label" for="poconnection">
+                <span class="onoffswitch-inner"></span>
+                <span class="onoffswitch-switch"></span>
+              </label>
+            </div>
+          </td>
+        </tr>
+
+        <tr  ng-if="vm.element == 'number' || vm.element == 'slider'">
+          <td style="background-color: rgb(240, 238, 238)">
+            <label for="">Program Outcome</label>
+          </td>
+          <td colspan="3">
+            <select multiple chosen="{width:'100%'}" class="form-control"
+              ng-options="x.id as x.po_level_abbr for x in vm.po_data" ng-disabled="!vm.poconnection"
+              ng-model="vm.povalue" ng-change="" data-placement="right" name="" id="">
+              <option value="choose" disabled selected>choose one</option>
+            </select>
+          </td>
+        </tr>
+
+        <tr>
+          <td style="background-color: rgb(240, 238, 238)">
+            <label for="">Tip</label>
+          </td>
+          <td colspan="3">
+            <input id="opinfo" type="text" ng-model="vm.info" class="form-control">
+          </td>
+        </tr>
+
+
+        <tr
+          ng-if="vm.element == 'text' || vm.element == 'number' || vm.element == 'email' || vm.element == 'paragraph' || vm.element == 'slider'">
+          <td style="background-color: rgb(240, 238, 238)">
+            <label for="">Value</label>
+          </td>
+          <td colspan="3">
+            <input type="text" id="value" ng-model="vm.value" class="form-control">
+          </td>
+        </tr>
+
+
+        <tr ng-if="vm.element == 'checkbox' || vm.element == 'radio' || vm.element == 'dropdown'">
+          <td style="background-color: rgb(240, 238, 238)">
+            <label for="">Options</label><span style="color: red;"> *</span>
+          </td>
+          <td colspan="3">
+
+            <div class="row">
+              <div class="col-md-9">
+                <span class="row " ng-repeat="x in vm.options track by $index">
+                  <span class="col-md-1">
+                    <label style="font-weight: 400;" class="checkbox minotaur-checkbox">
+                  <input ng-model="vm.options_answer[$index]" type="checkbox" name="" id="">
+                  <div class="input-indicator"></div>
+                    </label>
+                  </span>
+                  <span class="col-md-11">
+                    <input type="text" ng-model="vm.options[$index]"
+                    class="form-control">
+                  </span>
+                </span>
+              </div>
+
+              <div class="col-md-3">
+                <div class="btn-toolbar mb-10" role="toolbar">
+                  <div class="btn-group btn-group-rounded-20">
+                    <button type="button" class="btn btn-default" ng-click="vm.addOptions()"><i
+                        class="fa fa-plus"></i></button>
+                    <button type="button" class="btn btn-default" ng-click="vm.delOptions()"><i
+                        class="fa fa-minus"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </td>
+        </tr>
+
+        <tr ng-if="vm.element == 'date'">
+          <td style="background-color: rgb(240, 238, 238)">
+            <label for="">Start Date</label>
+          </td>
+          <td colspan="3">
+            <input class="form-control" placeholder="Enter date" format="dd-MM-yyyy" ng-model="vm.start_date"
+              ng-required="true" close-text="Close" max-date="" bs-datepicker>
+          </td>
+        </tr>
+
+        <tr ng-if="vm.element == 'date'">
+          <td style="background-color: rgb(240, 238, 238)">
+            <label for="">End Date</label>
+          </td>
+          <td colspan="3">
+            <input class="form-control" placeholder="Enter date" format="dd-MM-yyyy" ng-model="vm.end_date"
+              ng-required="true" close-text="Close" max-date="" bs-datepicker>
+          </td>
+        </tr>
+
+        <tr ng-if="vm.element == 'slider' || vm.element == 'number'">
+          <td style="background-color: rgb(240, 238, 238)">
+            <label for="">Minimum value</label>
+          </td>
+          <td colspan="3">
+            <input type="number" ng-model="vm.min" class="form-control">
+          </td>
+        </tr>
+
+        <tr ng-if="vm.element == 'slider' || vm.element == 'number'">
+          <td style="background-color: rgb(240, 238, 238)">
+            <label for="">Maximum value</label>
+          </td>
+          <td colspan="3">
+            <input type="number" ng-model="vm.max" class="form-control">
+          </td>
+        </tr>
+
+        <tr ng-if="vm.element == 'paragraph'">
+          <td style="background-color: rgb(240, 238, 238)">
+            <label for="">Maximum words</label>
+          </td>
+          <td colspan="3">
+            <input type="number" ng-model="vm.max_words" class="form-control">
+          </td>
+        </tr>
+
+        <tr ng-if="vm.element == 'number' || vm.element == 'text'">
+          <td style="background-color: rgb(240, 238, 238)">
+            <label for="">Length</label>
+          </td>
+          <td colspan="3">
+            <input type="number" ng-model="vm.len" class="form-control">
+          </td>
+        </tr>
+
+        <tr ng-if="vm.element != 'date' && vm.element != 'dropdown' && vm.element != 'checkbox' && vm.element != 'radio'">
+          <td style="background-color: rgb(240, 238, 238)">
+            <label for="">Width</label>
+          </td>
+          <td colspan="3">
+            <rzslider rz-slider-model="vm.widthSlider.value" rz-slider-options="vm.widthSlider.options">
+            </rzslider>
+          </td>
+        </tr>
+
+        <tr>
+          <td style="background-color: rgb(240, 238, 238)">
+            <label for="">Report Attribute</label>
+          </td>
+          <td colspan="3">
+            <div class="onoffswitch primary inline-block">
+              <input type="checkbox" ng-model="vm.report_att" name="report_att" class="onoffswitch-checkbox" id="report_att"
+                checked="">
+              <label class="onoffswitch-label" for="report_att">
+                <span class="onoffswitch-inner"></span>
+                <span class="onoffswitch-switch"></span>
+              </label>
+            </div>
+          </td>
+        </tr>
+
+
+
+      </table>
+
+
+      <div ng-if="vm.element == 'table'">
+
+
+        <div class="row">
+          <div class="col-md-12">
+            <label for="">ENTER QUESTION</label><span style="color: red;"> *</span>
+            <text-angular ng-blur="vm.previewQues()" ng-model="vm.label"
+            ta-toolbar="[['h1','h2','h3'],['bold','italics','underline','redo','undo'],['justifyLeft','justifyCenter','justifyRight'],['ul','ol']]">
+          </text-angular>
+          </div>
+        </div>
+<br>
+          <div class="row">
+            <div class="col-md-6">
+
+              <div class="col-md-6">
+                <label for="">Mandatory</label>
+
+              </div>
+              <div class="col-md-6">
+                <div class="onoffswitch primary inline-block">
+                  <input type="checkbox" ng-model="vm.mandatory" name="mandatory" class="onoffswitch-checkbox"
+                    id="mandatory" checked="">
+                  <label class="onoffswitch-label" for="mandatory">
+                    <span class="onoffswitch-inner"></span>
+                    <span class="onoffswitch-switch"></span>
+                  </label>
+                </div>
+              </div>
+              
+        
+            </div>
+  
+            <div class="col-md-6">
+                <div class="col-md-6">
+                  <label for="">Remarks</label>
+  
+                </div>
+                <div class="col-md-6">
+                  <div class="onoffswitch primary inline-block">
+                    <input type="checkbox" ng-model="vm.remarks" name="remark" class="onoffswitch-checkbox" id="remark"
+                      checked="">
+                    <label class="onoffswitch-label" for="remark">
+                      <span class="onoffswitch-inner"></span>
+                      <span class="onoffswitch-switch"></span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+          </div>
+<br>
+          <div class="row">
+
+            <div class="col-md-6">
+              <label for="">Tip</label>
+              <input id="opinfo" type="text" ng-model="vm.info" class="form-control">
+            </div>
+  
+            <div class="col-md-6">
+              <div class="row">
+                <div class="col-md-6">
+                  <label for="">Starting value</label>
+                  <input class="form-control" ng-model="vm.slider_start" type="text" name="" id="">
+                </div>
+        
+                <div class="col-md-6">
+                  <label for="">End value</label>
+                  <input class="form-control" ng-model="vm.slider_end" type="text" name="" id="">
+                </div>
+              </div>
+              
+            </div>
+
+          </div>
+<br>
+          
+          <div class="row">
+            <div class="col-md-6">
+              <div class="btn-toolbar " role="toolbar">
+                <div class="btn-group btn-group-rounded-20">
+                  <button ng-click="vm.Addrow('row')"  type="button" class="btn btn-default"> <i class="fa fa-plus"></i> &nbsp; Add row </button>
+                  <button ng-click="vm.Removerow('row')"  type="button" class="btn btn-default"> <i class="fa fa-minus"></i> &nbsp; Remove row</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+<br>
+<br>
+
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+            <th>
+              <label for="">S.no.</label>
+            </th >
+
+            <th>
+              <input ng-model="vm.row_heading" class="form-control" type="text" name="" id="">
+            </th>
+
+            <th>
+              Rating
+            </th>
+            </tr>
+          </thead>
+          
+          <tbody >
+            <tr ng-repeat="x in vm.table_rows track by  $index">
+              <td>
+                <label for="">{{$index+1}}</label>
+              </td>
+              <td >
+                <input ng-model="vm.row_label[$index]" class="form-control" type="text" name="" id="">
+              </td>
+              <td >
+                <rzslider rz-slider-model="vm.slider_table[$index]" rz-slider-options="vm.sliderTable.options"  uib-tooltip="{{x.info}}">
+                </rzslider>
+              </td>
+            </tr>
+            
+          </tbody>
+
+        </table>
+
+      </div>
+
+
+      <div class="col-md-12" ng-if="vm.add_btn">
+        <br>
+        <center><button ng-click="vm.makeJson()" class="btn btn-default">Add Question</button></center>
+      </div>
+
+      <div class="col-md-12" ng-if="vm.edit_btn">
+        <br>
+        <center><button ng-click="vm.makeJson('edit',vm.edit_check)" class="btn btn-default">Edit Question</button></center>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6" style="padding: 0;">
+          <div class="col-md-2 text-center" style="font-size: 16px; padding-right: 0; "><b>Note:- </b></div>
+          <div class="col-md-10 text-left Padding_TL">
+            <ul class="list-type caret-right Padding_TL" style="margin-top:-1px;">
+              <li class="Padding_TL" style="color: red;">Click on gear icon to cancel adding question.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</uib-accordion>

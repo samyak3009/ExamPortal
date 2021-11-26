@@ -1,0 +1,212 @@
+<style>
+  input[type="radio"]{
+    width: 25px;
+    height: 25px;
+  }
+  .task-container{
+	  cursor: default !important;
+  }
+  label{
+    font-weight: 1000;
+  }
+  .ques_label{
+    font-size: 1.3em;
+    font-weight: 700;
+  }
+.question{
+  display: inline-flex;
+}
+  .remarks{
+    max-height: 70px;  
+  }
+
+  .ta-editor.ta-html,
+  .ta-scroll-window.form-control {
+    min-height: 150px !important;
+  }
+
+  .ta-scroll-window>.ta-bind {
+    min-height: 150px;
+  }
+
+  .formTile{
+    padding: 50px !important;
+  }
+
+  .task-container1{
+    border-radius: 5px;
+    padding: 2%;
+    border-left: 4px solid #3899d0;
+
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+    /* padding: 15px; */
+    background-color: white;
+    margin-bottom: 15px;
+    /* border-left: 3px solid; */
+    position: relative;
+    transition: all 0.25s linear;
+  }
+</style>
+
+<div class="page page-forms pull-to-header">
+  <ol class="breadcrumb bg-white">
+    <li><a ui-sref="dashboard">Home</a></li>
+    <li><a href="javascript:;">MMS</a></li>
+    <li class="active">INDIRECT FORM</li>
+  </ol>
+  <section class="tile" print-remove>
+    <h3 class="alert alert-info heading">Survey</h3>
+    <section class="tile-body">
+      
+
+
+            <div class="row">
+              <div class="col-md-12">
+                  <div class="col-md-6">
+                      <div class="col-md-4">
+                          <label for="bloom" class="control-label minotaur-label">Course</label>
+                      </div>
+                      <div class="col-md-8">
+                          <select class="form-control" id="course" name="course"   chosen="{width:'100%'}"  ng-options="x.course as x.course__value for x in vm.coursedropdown" ng-model="vm.course" ng-change="vm.getBranchDropdown(); vm.hideTile();" required>
+                              <option value="" disabled>Choose One</option>
+                          </select>
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="col-md-4">
+                          <label for="branch" class="control-label minotaur-label">Branch</label>
+                      </div>
+                      <div class="col-md-8">
+                          <select   class="form-control" id="branch" name="branch" ng-change=" vm.hideTile();"  chosen="{width:'100%'}" ng-options="x.section__sem_id__dept as x.section__sem_id__dept__dept__value for x in vm.branchdropdown" ng-model="vm.branch"  required>
+                              <option value="" selected disabled> Choose One</option>
+                          </select>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+<br>
+          <div class="row">
+            <div class="col-md-12">
+
+              <div class="col-md-6">
+                <div class="col-md-4">
+                  <label for="subject" class="control-label minotaur-label">Batch From</label>
+                </div>
+                <div class="col-md-8">
+                  <!-- <select class="form-control" chosen="{width:'100%'}" ng-options="x as x for x in vm.batch_data" ng-change="vm.batchTo_value(); vm.hideTile(); vm.getSurvey();" ng-model="vm.batch" name="batch"  ng-required="true">
+                    <option disabled="true" value=""></option>
+                  </select> -->
+                  <input ng-change="vm.enableBtn(); " ng-blur="vm.batchTo_value() " ng-model="vm.batch" type="number" class="form-control input" name="" id="">
+                  
+                </div>
+            </div>
+
+
+
+            <div class="col-md-6">
+              <div class="col-md-4">
+                <label for="subject" class="control-label minotaur-label">Batch To</label>
+              </div>
+              <div class="col-md-8">
+                <input class="form-control" ng-change="" ng-disabled="true" ng-model="vm.batch_to" type="number">
+              </div>
+          </div>
+
+            </div>
+        </div>
+<br>
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="col-md-6">
+              <div class="col-md-4">
+                <label for="subject" class="control-label minotaur-label">Survey</label>
+              </div>
+              <div class="col-md-8">
+                <select   class="form-control" id="Survey" name="Survey" ng-change=" vm.hideTile();" chosen="{width:'100%'}" ng-options="x.survey_id as x.survey_id__value for x in vm.surveydropdown" ng-model="vm.survey_selected"  required>
+                  <option value="" disabled> Choose One</option>
+              </select>
+              </div>
+          </div>
+          </div>
+        </div>
+
+
+
+<br>
+        <div class="row">
+          <center><button ng-click="vm.getJson()"  class="btn btn-primary">Submit</button></center>
+        </div>
+
+
+          <br>
+    </section>
+  </section>
+
+<br>
+
+<section class="tile " print-remove ng-if="vm.mainForm">
+  <!-- <section class="tile" print-remove ng-if="true"> -->
+    <h3 class="alert alert-info heading">INDIRECT FORM</h3>
+    <section class="tile-body">
+        <span >
+          
+
+        <div class="text-center"><span style="font-size: 22px; font-weight: bolder;">KIET Group of Institutions</span></div>
+
+        <div class="row" style="margin-top: 10px;">
+          <div class="text-center font_head"><span class="border_btm"><b>{{vm.heading_survey}}</b></span></div>
+      </div>
+
+      <div class="row" style="margin-top: 10px; margin-bottom: 15px;">
+        <div class="text-center font_head"><span class="border_btm"><b>Batch :- {{vm.batch}}-{{vm.batch_to}}</b></span></div>
+    </div>
+                <div style="border: 1px solid black"></div>
+                <br>
+                <div class="row">
+                  <div class="col-md-6" style="padding: 0;">
+                    <div class="col-md-2 text-center" style="font-size: 16px; padding-right: 0; "><b>Note:- </b></div>
+                    <div class="col-md-10 text-left Padding_TL">
+                        <ul class="list-type caret-right Padding_TL" style="margin-top:-1px;">
+                            <li class="Padding_TL">All <span style="color: red;"></span> * marked questions are mandatory.</li>
+                            <li class="Padding_TL">After completing click on submit button.</li>
+                        </ul>
+                    </div>
+                </div>
+                </div>
+                <br>
+
+        <!-- <uib-accordion >
+          <div uib-accordion-group class="panel-greensea" is-open="true" is-disabled="true">
+            <uib-accordion-heading>
+              <div class="row">
+                  <div class="col-md-6">
+                      <h3 style="color: white;">Form</h4> <i class="pull-right glyphicon"></i>
+                  </div>
+              </div>
+          </uib-accordion-heading> -->
+        <!-- <div class=""  class=""> -->
+          <div class="row formTile">
+            <div ng-repeat="x in vm.forms track by $index" ng-include src="'app/pages/MMS/IndirectForm/form.html'"></div>
+          </div>
+        <!-- </div> -->
+      <!-- </div>
+      </uib-accordion> -->
+
+      <br>
+      <br>
+      <div class="row">
+        <div class="col-md-12">
+          <center>
+            <button ng-click="vm.submit()" class="btn btn-primary">SUBMIT</button>
+          </center>
+          <br>
+        </div>
+      </div>
+        </span>
+        
+
+    </section>
+  </section>
+</div>

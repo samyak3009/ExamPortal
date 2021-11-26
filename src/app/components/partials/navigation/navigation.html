@@ -1,0 +1,30 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-strap/2.3.12/angular-strap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-strap/2.3.12/angular-strap.tpl.min.js"></script>
+
+<div
+  slimscroll="{height: '100%',
+      size: '4px',
+      borderRadius: '0px',
+      opacity: .2}"
+>
+  <div
+    ng-repeat="menu in navigation.SiteMenu"
+    dropdown-tree=""
+    ng-model="menu.tabs"
+    class="nav-heading"
+    member="menu.role"
+  ></div>
+</div>
+<!--<div class="nav-heading">
+  <h3>Navigation</h3>
+</div>
+
+<div slimscroll="{
+      height: '100%',
+      size: '4px',
+      borderRadius: '0px',
+      opacity: .2
+     }">
+
+
+</div>-->

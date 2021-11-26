@@ -1,0 +1,198 @@
+<style type="text/css">
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+-moz-appearance: none;
+appearance: none;
+margin: 0;
+}
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus
+{
+background-color: /*#1199d3*/#5bc0de;
+border-radius: 5px;
+}
+.nav-tabs.nav-justified > .active > a {
+text-align: center;
+font-size: 16px;
+color: white!important;
+}
+.nav-justified > li > a, .nav-tabs.nav-justified > li > a
+{
+color: black;
+font-weight: normal;
+font-size: 14px;
+font-family: "Raleway", "Arial", sans-serif;
+}
+</style>
+<div class="page page pull-to-header">
+  <ol class="breadcrumb bg-white">
+    <li><a ui-sref="dashboard">Home</a></li>
+    <li><a href="javascript">Student Academics</a></li>
+    <li class ="active">Submit Co</li>
+  </ol>
+  <section class="tile">
+    <h3 class="alert alert-info heading">Submit Course Outcomes Report</h3>
+    <div class="tile-body">
+      <form name="submit_co" role="form">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="col-md-4">
+              <label for="course" class="control-label minotaur-label">Course</label>
+            </div>
+            <div class="col-md-8">
+              <select name="course" class="form-control" ng-model="vm.course" ng-change="vm.onCourseChange()" ng-options="x.course as x.course__value for x in vm.courseDetails" chosen="{width:'100%'}" ng-required="true">
+                <option value="" disabled>Choose one</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="col-md-4">
+              <label for="branch" class="control-label minotaur-label">Branch</label>
+            </div>
+            <div class="col-md-8">
+              <select name="branch" class="form-control" ng-model="vm.branch" ng-change="vm.onBranchChange()" ng-options="x.section__sem_id__dept as x.section__sem_id__dept__dept__value for x in vm.branchDetails" chosen="{width:'100%'}" ng-required="true">
+                <option value="" disabled>Choose one</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="col-md-4">
+              <label for="semester" class="control-label minotaur-label">Semester</label>
+            </div>
+            <div class="col-md-8">
+              <select name="semester" class="form-control" ng-model="vm.semester" ng-change="vm.onSemesterChange()" ng-options="x.section__sem_id__sem as x.section__sem_id__sem for x in vm.semesterDetails" chosen="{width:'100%'}" ng-required="true">
+                <option value="" disabled>Choose one</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="col-md-4">
+              <label for="subject" class="control-label minotaur-label">Subject</label>
+            </div>
+            <div class="col-md-8">
+              <select name="subject" class="form-control" ng-model="vm.subject" ng-options="x.subject_id as x.subject_id__sub_name for x in vm.subarray" chosen="{width:'100%'}" ng-required="true">
+                <option value="" disabled>Choose one</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <br>
+        <center><button class="btn btn-primary" ng-disabled="submit_co.$invalid" ng-click="vm.Submit()">Submit</button></center>
+      </form>
+      
+    </div>
+  </section>
+  <section ng-show="vm.showinput">
+    <div class="tile">
+      <h3 class="alert alert-info heading">Course Outcomes</h3>
+      <uib-tabset class="minotaur-tab-light mb-10" justified="true" active="vm.tabIndex">
+      <uib-tab heading="Course Outcome Details" ng-click="vm.tabSelect(0)" active="vm.tabIndex == 0" TabIndex="0"></uib-tab>
+      <uib-tab heading="External Attainment % Target" ng-click="vm.tabSelect(1)" active="vm.tabIndex == 1"  TabIndex="1"></uib-tab>
+      </uib-tabset>
+      <div class="tile-body" ng-show="!vm.showCourseDetails">
+        <br>
+        <form name="external_attainment">
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="col-md-3">
+                <center>
+                <label for="semester" class="control-label minotaur-label" style="padding-top: 5px;"><center>External Attainment%:</center></label>
+                </center>
+              </div>
+              <div class="col-md-4">
+                <input type="number" ng-show="vm.editExternal" name="attainment" ng-required="true" placeholder="" class="form-control" style="padding-left: 2px;padding-right: 2px;" min="0" max="100" ng-model="vm.externalAttainment">
+                <span ng-show="!vm.editExternal"><b>{{vm.externalAttainment}}%</b></span>
+              </div>
+
+              <div class="col-md-5 col-xs-12">
+                <code class="block"><i class="fa fa-info-circle"></i> Enter CO-Attainment Percentage for University(External) Examination</code>
+              </div>
+              <div class="row">
+                  <center>
+                  <button class="btn btn-warning btn-rounded btn-ef btn-ef-5 btn-ef-5b mb-10" style="right: 5px" ng-click="vm.editExternal='true'" ng-show="!vm.editExternal"><i class="fa fa-pencil-square-o btn-space"></i><span>EDIT</span>
+                  </button>
+                  <button class="btn btn-primary" ng-disabled="external_attainment.$invalid" ng-show="vm.editExternal" ng-click="vm.submitExternal(vm.externalAttainment); vm.editExternal = false">Submit</button>
+                  </center>
+              </div>
+            </div>
+            <br><br><br>
+          </div>
+        </form>
+      </div>
+      <div class="tile-body" ng-show="vm.showCourseDetails">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-6 col-xs-12">
+            <code class="block"><i class="fa fa-info-circle"></i> Enter CO's & CO-Attainment Percentage for respected types</code>
+          </div>
+        </div>
+        <br>
+        <br>
+        <div class="row">
+          <!-- <div class="col-md-2"></div> -->
+          <div class="col-md-12">
+            <div ng-repeat="x in vm.courseoutcome track by $index">
+              <div class="row">
+                <div class="col-sm-1" style="padding: 0; padding-right: 5px">
+                  <span><b>CO-{{x.co_num}})</b></span>
+                </div>
+                <div class="col-sm-6">
+                  <input type="text" ng-model="x.description" ng-show="x.edit" class='form-control'>
+                  <span ng-show="!x.edit">{{x.description}}</span>
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-xs-3" ng-repeat="exam in x['exams']">
+                  <div class="col-xs-6" style="padding-left: 0">
+                    <label for="course" class="control-label minotaur-label"  style="margin-top:4px;float: right; text-align: center">{{exam.value}} Attainment%:</label>
+                  </div>
+                  <div class="col-xs-6" style="padding-right: 0">
+                    <span style="float: left; font-weight: bolder" ng-show="!x.edit">{{exam.attainment_per}}%</span>
+                    <input type="number" ng-model="exam.attainment_per" ng-show="x.edit" class="form-control" min="0" max="100">
+                  </div>
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-sm-1 col-sm-offset-11" style="padding-right: 0; padding-left:0">
+                  <button class="btn btn-warning btn-rounded btn-ef btn-ef-5 btn-ef-5b mb-10" style="width: 75px" ng-show="!x.edit" ng-click="vm.edit(x.co_num, $index);" >
+                  <i class="fa fa-pencil-square-o btn-space"></i><span>EDIT</span>
+                  </button>
+                  <button class="btn btn-success btn-rounded btn-ef btn-ef-5 btn-ef-5b mb-10" style="width: 75px" ng-show="x.edit && x.isSubmitted" ng-click="vm.update($index, x.co_num)" >
+                  <i class="fa fa-pencil-square-o btn-space"></i><span>UPDATE</span>
+                  </button>
+                </div>
+              </div>
+              <hr style="margin-top: 5px ; margin-bottom: 4px" />
+              <br>
+              <br>
+            </div>
+          </div>
+          <div class="row">
+              <div class="col-xs-4">
+                <button style="float: left" class="btn btn-danger btn-rounded btn-ef btn-ef-5 btn-ef-5b mb-10" ng-click="vm.delete(x.co_num)">
+                  <i class="fa fa-trash-o btn-space"></i><span>DELETE All</span>
+                </button>
+              </div>
+            <div class="col-xs-4">
+              <center>
+                <button class="btn btn-primary btn-rounded btn-ef btn-ef-5 btn-ef-5b mb-10" ng-click="vm.submitNewCO();">
+                  <i class="fa fa-pencil-square-o btn-space"></i><span>Submit</span>
+                </button>
+              </center>
+            </div>
+            <div class="col-xs-4">
+              <button style="float: right" class="btn btn-success btn-rounded btn-ef btn-ef-5 btn-ef-5b mb-10" ng-click="vm.addNew();" >
+              <i class="fa fa-plus"></i><span>Add New CO</span>
+              </button>
+            </div>
+            </center>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

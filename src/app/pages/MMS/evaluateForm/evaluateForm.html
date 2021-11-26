@@ -1,0 +1,190 @@
+<style>
+  input[type="radio"] {
+    width: 25px;
+    height: 25px;
+  }
+  .task-container {
+    cursor: default !important;
+  }
+  label {
+    font-weight: 1000;
+  }
+  .ques_label {
+    font-size: 1.3em;
+    font-weight: 700;
+  }
+  .question {
+    display: inline-flex;
+  }
+  .remarks {
+    max-height: 70px;
+  }
+
+  .ta-editor.ta-html,
+  .ta-scroll-window.form-control {
+    min-height: 150px !important;
+  }
+
+  .ta-scroll-window > .ta-bind {
+    min-height: 150px;
+  }
+
+  .formTile {
+    padding: 50px !important;
+  }
+
+  .task-container1 {
+    border-radius: 5px;
+    padding: 2%;
+    border-left: 4px solid #3899d0;
+
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+    /* padding: 15px; */
+    background-color: white;
+    margin-bottom: 15px;
+    /* border-left: 3px solid; */
+    position: relative;
+    transition: all 0.25s linear;
+  }
+</style>
+<div class="controller">
+  <div class="row">
+    <div class="col-sm-0 col-md-1 col-lg-2"></div>
+    <div class="col-sm-12 col-md-10 col-lg-8">
+      <div class="page page-forms pull-to-header">
+        <section ng-if="vm.showStudent" class="tile" print-remove>
+          <h3 class="alert alert-info heading">
+            {{vm.conducted_sub}} - {{vm.conducted_title}}
+          </h3>
+          <section class="tile-body">
+            <table class="table minotaur-table ng-table-rowselected">
+              <thead>
+                <tr>
+                  <th>S.No.</th>
+                  <th>Student Id</th>
+                  <th>Student Name</th>
+                  <th>Username</th>
+                  <th>Mobile</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="x in vm.student_data">
+                  <td>{{$index+1}}.</td>
+                  <td>{{x.student_id}}</td>
+                  <td>{{x.student_id__name}}</td>
+                  <td>{{x.student_id__username}}</td>
+                  <td>{{x.student_id__mobile}}</td>
+                  <td
+                    style="color: rgb(255, 51, 51); font-weight: 700"
+                    ng-if="x.form_status == 0"
+                  >
+                    ABSENT
+                  </td>
+                  <td ng-if="x.form_status != 0">
+                    <button
+                      type="button"
+                      class="btn btn-success btn-sm"
+                      ng-click="vm.get_student_form($event, x)"
+                      data-options="splash-2 splash-ef-9"
+                    >
+                      VIEW
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+        </section>
+
+        <section ng-if="true" class="tile" print-remove>
+          <h3 class="alert alert-info heading">EXAMS</h3>
+          <section class="tile-body">
+            <table
+              ng-table="vm.tableParams"
+              class="table minotaur-table ng-table-rowselected"
+            >
+              <tr ng-repeat="x in $data">
+                <td data-title="'Sno.'">{{$index+1}}</td>
+                <td
+                  data-title="'Course'"
+                  data-sortable="'course'"
+                  filter="{ 'course': 'text' }"
+                >
+                  {{x.course}}
+                </td>
+                <td
+                  data-title="'Subject'"
+                  data-sortable="'subject'"
+                  filter="{ 'subject': 'text' }"
+                >
+                  {{x.subject}}
+                </td>
+                <td
+                  data-title="'Exam Title'"
+                  data-sortable="'exam_title'"
+                  filter="{ 'exam_title': 'text' }"
+                >
+                  {{x.exam_title}}
+                </td>
+                <td
+                  data-title="'Start Exam'"
+                  data-sortable="'start_time'"
+                  filter="{ 'start_time': 'text' }"
+                >
+                  {{x.start_time}}
+                </td>
+                <td
+                  data-title="'End Exam'"
+                  data-sortable="'end_time'"
+                  filter="{ 'end_time': 'text' }"
+                >
+                  {{x.end_time}}
+                </td>
+                <td data-title="'View Form'">
+                  <button
+                    type="button"
+                    class="btn btn-primary btn-sm"
+                    ng-click="vm.getFormAnswer($event, x)"
+                    data-options="splash-2 splash-ef-9"
+                  >
+                    EVALUATE
+                  </button>
+                </td>
+              </tr>
+            </table>
+          </section>
+        </section>
+        <script type="text/ng-template" id="mySplashContent.html">
+
+          <div class="modal-body">
+            <div class="well table-responsive" print-remove>
+                  <button print-btn print-remove class="btn btn-link">
+                      <span class="glyphicon glyphicon-share"></span> Print From
+                  </button>
+              </div>
+
+
+            <!-- =============================== -->
+            <div print-section class="row formTile">
+              <h3 class="alert alert-info heading">
+                {{modal.status.subject}} - {{modal.status.title}}
+              </h3>
+              <div
+                ng-repeat="x in modal.status.data track by $index"
+                ng-include
+                src="'app/pages/MMS/evaluateForm/form.html'"
+              >
+              </div>
+            </div>
+            <!-- =================================== -->
+          </div>
+          <div class="modal-footer" print-remove>
+            <button class="btn btn-lightred btn-ef btn-ef-4 btn-ef-4c" ng-click="modal.cancel()"><i class="fa fa-arrow-left"></i> Close</button>
+          </div>
+        </script>
+      </div>
+    </div>
+    <div class="col-sm-0 col-md-1 col-lg-2"></div>
+  </div>
+</div>

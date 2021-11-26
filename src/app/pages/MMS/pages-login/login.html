@@ -1,0 +1,125 @@
+<div class="page page-core page-login">
+  <div class="login-modal" style="margin-top: 50px">
+    <div class="alertify-logs pull-right"></div>
+    <div class="branding">
+      <!-- <img src="assets/images/EASy_logo.png" width="80" alt="EASy Logo">
+            <p style="font-family: monospace;">Powered by <a href="http://www.kiet.edu" style="font-family: sans-serif;">KIET Group of Institutions</a></p> -->
+      <p class="heading--form"><strong>Faculty</strong> Login</p>
+    </div>
+    <div class="row social-login">
+      <!-- <div class="col-xs-6"><a  style="padding: 10px;" href="https://play.google.com/store/apps/details?id=edu.kiet.faculty.faculty_app" target="_blank" class="icon icon-greensea icon-lg icon-ef-8 icon-color"><img style="height:100%;" src="assets/images/kaksha.webp"></img></a> KIET कक्षा </div>
+            <div class="col-xs-6"><a  style="padding: 10px;" href="https://play.google.com/store/apps/details?id=kiet.edu.hrms&hl=en_IN" target="_blank" class="icon icon-info icon-lg icon-ef-8 icon-color"><img style="height:100%;" src="assets/images/wfms.webp"></img></a> KIET WFMS </div> -->
+      <!-- <div class="col-sm-6"><button class="btn  btn-lg btn-block"><</button></div> -->
+      <!-- <div class="col-sm-4"><button class="btn btn-danger btn-lg btn-block"><i class="fa fa-google-plus"></i></button></div> -->
+    </div>
+    <!--<div class="line-text"><span>or</span></div>-->
+    <form ng-submit="ctrl.login()" name="form">
+      <div class="form-group with-addon">
+        <span class="input-addon"><i class="icon-user"></i></span>
+        <input
+          type="text"
+          placeholder="Username"
+          ng-model="ctrl.username"
+          ng-required="true"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group with-addon">
+        <span class="input-addon"><i class="icon-key"></i></span>
+        <input
+          type="password"
+          placeholder="Password"
+          ng-model="ctrl.password"
+          ng-required="true"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <a ui-sref="pages.forgotpass" class="pull-right" style="color: #777"
+          >Forgot Password?</a
+        >
+        <label class="minotaur-checkbox minotaur-label inline-block"
+          >Remember me
+          <input type="checkbox" checked />
+          <div class="input-indicator"></div>
+        </label>
+      </div>
+      <button
+        type="submit"
+        class="btn btn-block btn-lg btn-rounded-40"
+        ng-disabled="form.$invalid"
+        style="
+          background-image: linear-gradient(
+            135deg,
+            var(--color-primary-1),
+            var(--color-primary-2)
+          );
+        "
+      >
+        Login
+      </button>
+      <h3 class="heading--third-party-logins text-center">or sign in with</h3>
+      <center>
+        <div class="signin d-flex justify-content-center third-party-logins">
+          <i
+            class="fa fa-facebook-official third-party-icons"
+            aria-hidden="true"
+          ></i>
+          <i
+            class="fa fa-twitter-square third-party-icons"
+            aria-hidden="true"
+          ></i>
+          <i class="fa fa-google third-party-icons" aria-hidden="true"></i>
+        </div>
+      </center>
+    </form>
+    <!-- <div class="branding" style="margin-top: 20px;">
+            <p>Designed and developed by <a href="https://tech.kiet.edu/team-erp/" style="color: darkgreen;">TeamERP</a></p>
+        </div> -->
+  </div>
+</div>
+
+<style>
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+  }
+
+  :root {
+    --color-white: #fff;
+    --color-black: #000;
+    --color-primary-1: #c850c0;
+    --color-primary-2: #4158d0;
+    --color-facebook-icon: #3b5998;
+    --color-twitter-icon: #38a1f3;
+    --color-google-icon: #db4a39;
+    --color-error-red: #ff0000;
+  }
+
+  .heading--form {
+    padding-bottom: 2.5rem;
+    font-size: 2.9rem;
+    /* font-weight: 900; */
+    letter-spacing: 0.5rem;
+  }
+  .heading--third-party-logins {
+    font-size: 1.2rem;
+    margin-top: 7rem;
+  }
+  .third-party-icons {
+    padding-top: 1rem;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+
+  .third-party-icons:hover {
+    box-shadow: 0 2rem 2.5rem rgba(0, 0, 0, 0.8);
+  }
+
+  .third-party-icons:not(:last-child) {
+    margin-right: 2rem;
+  }
+</style>

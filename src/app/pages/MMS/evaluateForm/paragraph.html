@@ -1,0 +1,26 @@
+<!-- <textarea ng-model="vm[x.model]" name="" uib-tooltip="{{x.info}}" data-placement="right"  class="form-control" id="" rows="5"></textarea> -->
+<div class="form-group">
+  <!-- <label class="col-sm-2 control-label minotaur-label">WYSIWYG</label> -->
+  <!-- <div class="col-sm-10"> -->
+  <!-- <text-angular ng-change='vm.test()' uib-tooltip="{{x.info}}" ng-model="x.answer"></text-angular> -->
+  <text-angular
+    ng-if="!x.answerable"
+    ng-model="x.answer"
+    ta-toolbar="[['h1','h2','h3','h4','h5','h6','p'],['bold','italics','underline'],['justifyLeft','justifyCenter','justifyRight'],['redo','undo'],['ul','ol'],['wordcount']]"
+  ></text-angular>
+
+  <!-- </div> -->
+</div>
+<span ng-if="x.isremarks == true">
+  <br />
+  <textarea
+    placeholder="Remarks"
+    ng-model="x.remarks"
+    class="remarks form-control"
+    name=""
+    id=""
+    cols="30"
+    rows="10"
+  ></textarea>
+</span>
+<br />

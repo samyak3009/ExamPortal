@@ -1,0 +1,43 @@
+<!-- <input type="file"  data-placement="right" class="form-control" name="" id=""> -->
+<!-- <div class="col-md-6"> -->
+<!-- <input type="file" uib-tooltip="{{x.info}}" class="filestyle" filestyle button-text="File Upload" icon-name="fa fa-inbox"> -->
+<!-- </div> -->
+<span uib-tooltip="{{x.info}}" style="display: inline-flex">
+  <input
+    name="doc"
+    type="file"
+    uib-tooltip="{{x.info}}"
+    class="filestyle"
+    file-model="vm.myFile2"
+    ng-model="vm.file"
+    filepreview="filepreview"
+    filestyle="{buttonText: 'Select image',iconName: 'fa fa-file-image-o'}"
+    id="doc"
+    name="doc"
+    ng-click="vm.image_index($index)"
+    onchange="angular.element(this).scope().upload(this.files,this.id,'activity','activity')"
+    ng-required="true"
+  />
+  <img
+    ng-if="vm.image"
+    ng-src="https://tech.kiet.edu/upload_images/activity/activity/{{vm.doc}}"
+    height="auto"
+    width="150px"
+    alt=""
+  />
+</span>
+
+<!-- <span ng-if="x.isremarks == true">
+  <br />
+  <textarea
+    placeholder="Remarks"
+    ng-model="x.remarks"
+    class="remarks form-control"
+    name=""
+    id=""
+    cols="30"
+    rows="10"
+  ></textarea>
+</span> -->
+
+<br />

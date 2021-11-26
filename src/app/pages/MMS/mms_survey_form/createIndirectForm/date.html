@@ -1,0 +1,14 @@
+<!-- <div class="col-md-6"> -->
+<!-- <input class="form-control" ng-change='vm.test()' placeholder="Enter date" uib-tooltip="{{x.info}}" format="dd-MM-yyyy" ng-model=x.answer ng-required="true" close-text="Close" datepicker-options="{maxDate: {{x.end}},minDate:{{x.start}}}" ng-disabled="" max-date="" bs-datepicker> -->
+<!-- </div> -->
+
+<!-- <div class="input-group w-md" ng-controller="DatepickerPopupController as ctrl"> -->
+    <input type="text" class="form-control" name="dateFrom" uib-datepicker-popup="{{ctrl.format}}" ng-model="x.answer" uib-tooltip="{{x.info}}" is-open="ctrl.popup1.opened"  datepicker-options="{maxDate: x.end,minDate:x.start}" ng-required="true" ng-if="!x.answerable" close-text="Close" />
+    <span class="input-group-btn">
+        <button type="button" class="btn btn-default" ng-click="ctrl.open1($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+    </span>
+<!-- </div> -->
+<span ng-if="x.isremarks == true">
+    <br>
+    <textarea placeholder="Remarks" ng-model="x.remarks" class="remarks form-control" name="" id="" cols="30" rows="10"></textarea>
+</span>

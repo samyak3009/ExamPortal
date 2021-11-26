@@ -1,0 +1,156 @@
+<head>
+  <link
+    href="https://fonts.googleapis.com/css?family=Comfortaa"
+    rel="stylesheet"
+  />
+  <style type="text/css">
+    .comfortaa {
+      font-family: "Comfortaa", cursive;
+    }
+    .dot {
+      height: 40px;
+      width: 40px;
+      background-color: #b3ffec;
+      border-radius: 50%;
+      display: inline-block;
+      padding-top: 6px;
+      padding-left: 13px;
+      font-size: 25px;
+    }
+  </style>
+</head>
+<div class="controller">
+  <div class="row">
+    <div class="col-sm-0 col-md-1 col-lg-2"></div>
+    <div class="col-sm-12 col-md-10 col-lg-8">
+      <div class="page page-dashboard pull-to-header">
+        <h3 class="form-group col-lg-6 clearfix">
+          Welcome {{dashboard.employee_name}}
+        </h3>
+        <br /><br />
+        <h3 class="text underline"></h3>
+        <div ng-hide="dashboard.dashboard_hide" class="row">
+          <div ng-hide="dashboard.dashboard_hide" class="row">
+            <div class="col-lg-12">
+              <div class="col-md-8">
+                <div class="row" style="width: 100%">
+                  <section class="tile-body p-0 full-accordion">
+                    <div class="tile calendar-widget">
+                      <section class="tile-header">
+                        <h1 class="heading">Links</h1>
+                        <br />
+                        <br />
+                        <div class="row" style="font-size: 20px">
+                          <div class="col-md-6">
+                            <center>
+                              <a ng-click="dashboard.goToLink('create')">
+                                <i
+                                  class="fa fa-clipboard"
+                                  style="font-size: 100px"
+                                ></i>
+                                <br /><br />
+                                <h2 class="heading">Create Exam</h2>
+                              </a>
+                            </center>
+                          </div>
+                          <div class="col-md-6">
+                            <center>
+                              <a ng-click="dashboard.goToLink('evaluate')">
+                                <i
+                                  class="fa fa-edit"
+                                  style="font-size: 100px"
+                                ></i>
+                                <br /><br />
+                                <h2 class="heading">Evaluate Exam</h2>
+                              </a>
+                            </center>
+                          </div>
+                        </div>
+                      </section>
+                    </div>
+                  </section>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="row">
+                  <section class="tile-body p-0 full-accordion">
+                    <div
+                      class="tile bg-slategray calendar-widget"
+                      ng-controller="CalendarWidgetController as widget"
+                    >
+                      <section class="tile-header">
+                        <h1 class="heading">Calendar</h1>
+                        <div class="controls">
+                          <div class="btn-group" uib-dropdown>
+                            <button
+                              class="btn btn-transparent"
+                              uib-dropdown-toggle
+                            >
+                              <i class="fa fa-cog"></i>
+                            </button>
+                            <ul
+                              class="dropdown-menu dropdown-menu-custom"
+                              uib-dropdown-menu
+                              role="menu"
+                            >
+                              <li
+                                role="menuitem"
+                                style="background-color: #616f77"
+                              >
+                                <a
+                                  href="javascript:;"
+                                  minotaur-tile-minimize
+                                ></a>
+                              </li>
+                              <li
+                                role="menuitem"
+                                style="background-color: #616f77"
+                              >
+                                <a
+                                  href="javascript:;"
+                                  minotaur-tile-refresh
+                                ></a>
+                              </li>
+                              <li
+                                role="menuitem"
+                                style="background-color: #616f77"
+                              >
+                                <a
+                                  href="javascript:;"
+                                  minotaur-tile-fullscreen
+                                ></a>
+                              </li>
+                              <li
+                                role="menuitem"
+                                style="background-color: #616f77"
+                              >
+                                <a
+                                  href="javascript:;"
+                                  minotaur-tile-lightbox
+                                ></a>
+                              </li>
+                            </ul>
+                          </div>
+                          <minotaur-tile-close></minotaur-tile-close>
+                        </div>
+                      </section>
+                      <section class="tile-body p-0">
+                        <div
+                          uib-datepicker
+                          ng-model="widget.dt"
+                          class="datepicker"
+                          datepicker-options="{showWeeks: true}"
+                        ></div>
+                      </section>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-0 col-md-1 col-lg-2"></div>
+    </div>
+  </div>
+</div>

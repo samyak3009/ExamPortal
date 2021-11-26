@@ -1,0 +1,19 @@
+<!-- <input type="radio" uib-tooltip="{{x.info}}" data-placement="right"  name="vm[x.model]" id=""> -->
+<!-- <div class="col-md-6"> -->
+<label
+  ng-if="!x.answerable"
+  style="font-weight: 400"
+  class="checkbox minotaur-radio"
+  >{{$index+1}} ) {{y}}
+  <input
+    ng-value="'{{y}}'"
+    ng-model="x.answer"
+    uib-tooltip="{{x.info}}"
+    name="{{x.element_id}}"
+    type="radio"
+  />
+  <div class="input-indicator"></div>
+</label>
+<!-- </div> -->
+
+<br />

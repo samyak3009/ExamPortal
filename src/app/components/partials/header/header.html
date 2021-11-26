@@ -1,0 +1,128 @@
+<style>
+    .chosen-container-single .chosen-search input[type="text"] {
+        display: hidden;
+    }
+
+    .chosen-search-input {
+        display: hidden;
+    }
+</style>
+<div class="navbar-header">
+    <button type="button" class="header-nav-toggle collapsed" data-toggle="collapse" data-target="#header-navbar"
+        aria-expanded="false" aria-controls="header-navbar">
+        <span class="sr-only">Toggle header</span>
+        <i class="fa fa-cog"></i>
+    </button>
+    <!-- <button type="button" class="navigation-toggle" id="navigation-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <i class="fa fa-bars"></i>
+    </button> -->
+    <!-- <a class="navbar-brand" ui-sref="dashboard">
+        <span><img src="assets/images/logo.png" height="45px" style="margin-bottom: 10px" /></span>
+    </a> -->
+    <a class="navbar-brand" ui-sref="dashboard" style="padding: 10px;">
+        <span class="hidden-lg" style="margin-top: -25px;">Submission Tool</span>
+        <div class="hidden-xs hidden-sm hidden-md"
+            style="position: absolute;top: 45%;left: 52%;transform: translate(-50%,-50%);"><b>Submission Tool</b></div>
+    </a>
+</div>
+<div id="header-navbar" class="navbar-collapse collapse">
+    <ul class="nav navbar-nav navbar-right">
+        <li style="height: 100%; text-align: center; color: brown;">
+
+            <div uib-dropdown style="height: 100%; text-align: center;">
+                <p style="color: white; font-size: 15px; margin: auto; padding: 5px;" id="text_data">
+                    {{header.session_heading}}</p>
+            </div>
+        </li>
+        <li>
+            <div uib-dropdown>
+                <!-- <button id="notifications" type="button" class="btn" uib-dropdown-toggle>
+                    <i class="fa fa-ellipsis-v"></i>
+                    <span class="nav-text">ERP MODULES</span>
+                </button> -->
+                <div class="dropdown-menu with-arrow animated littleFadeInRight notifications" uib-dropdown-menu
+                    role="menu" aria-labelledby="notifications">
+                    <section class="content" slimscroll="{height: '100%', size: '3px'}"
+                        style="background-color: #f5f5f5;">
+                        <!-- <h4 class="uppercase-bold text-sm text-center" style="color: #47699e; margin-bottom:0;">ERP
+                            MODULES</h4>
+                        <div class="row">
+                            <div class="col-xs-4 col-sm-4 col-md-4" ng-repeat="y in header.modules">
+                                <a href="{{y.address}}" style="padding: 0px 1px;">
+                                    <div
+                                        style="box-shadow: 0 2px 2px 0 rgba(0,0,0,0.2); transition: 0.3s; width: 100% ;height: 96px; border-radius: 5px; background-color:  rgba(255, 255, 255, 1); box-sizing: content-box;">
+                                        <div style="padding-top:  5px;">
+                                            <div class="col-xs-12" style="padding-top:0;padding-bottom:0 ">
+                                                <div class="col-xs-9" style="padding-top:0;padding-bottom:0">
+                                                    <i class="{{ y.icon }}" style="font-size:30px;"></i>
+                                                </div>
+                                            </div>
+                                            &nbsp;
+                                            <div class="text-center"
+                                                style="font-size:12px; line-height: 1;color:#787777;font-weight: 700;">
+                                                {{ y.name }}</div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div> -->
+                    </section>
+                </div>
+            </div>
+        </li>
+        <li>
+            <!-- Single button -->
+            <div uib-dropdown id="ui">
+                <button id="profile_view" type="button" class="btn no-bg" uib-dropdown-toggle>
+                    <img src={{header.imagepath}} class="img-responsive img-circle hidden-xs" alt="Default"
+                        style="border-radius:60%;max-height:98%;">
+                    <span class="nav-text"><i
+                            class="fa fa-user"></i>{{header.details1.names.name_n_join_date_contact[0].nme}}</span>
+                </button>
+                <div class="dropdown-menu with-arrow animated littleFadeInRight profile" uib-dropdown-menu role="menu"
+                    aria-labelledby="profile">
+                    <div class="media" style="padding-bottom: 10px;">
+                        <div class="media-left">
+                            <img class="media-object img-circle" src={{header.imagepath}} alt="">
+                            <!-- <i class="fa fa-user media-object img-circle"></i> -->
+                        </div>
+                        <div class="media-body">
+                            <button class="btn btn-theme minotaur-btn" ng-click="header.logout()"
+                                    style="float: right; line-height: 20px;"><i class="fa fa-power-off"></i>
+                                    Logout</button>
+                            <!-- <h4 class="text-sm uppercase-bold">{{header.details1.names.name_n_join_date_contact[0].nme}}
+                            </h4>
+                            <a href="javascript:;">{{header.details1.names.name_n_join_date_contact[0].mail}}</a>
+                            <ul class="list-unstyled">
+                                <li><a ui-sref="pages.profile_view"><i class="fa fa-user"></i> View Profile</a></li>
+                                <li><a ui-sref="pages.profile"><i class="fa fa-edit"></i> Edit Profile</a></li>
+                                <li><a ui-sref="pages.changePassword"><i class="fa fa-key"></i> Change Password</a></li>
+                            </ul> -->
+                        </div>
+                    </div>
+                    <!-- <div class="footer" style="padding: 5px">
+                        <div class="row" style="padding: 0">
+                            <div class="col-xs-6" style="">
+                                <form name="togg">
+                                    <select name="course" class="form-control" chosen="{width:'100%'}"
+                                        ng-model="header.session_select"
+                                        ng-change="header.onSessionSelect(); isOpen = false;" id="dropwn">
+                                        <option value="" disabled>Session</option>
+                                        <option ng-value="x.uid" ng-repeat="x in header.sessionDropdown">{{x.session}}
+                                            ({{x.type}})</option>
+                                    </select>
+                                </form>
+                            </div>
+                            <div class="col-xs-6">
+                                <button class="btn btn-theme minotaur-btn" ng-click="header.logout()"
+                                    style="float: right; line-height: 20px;"><i class="fa fa-power-off"></i>
+                                    Logout</button>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

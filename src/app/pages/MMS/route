@@ -1,0 +1,175 @@
+///////////////////////////////////// MMS //////////////////////////////////////////
+
+.state('mms_university_marks', {
+    url: '/erp/MMS/mms_university_marks',
+    templateUrl: 'app/pages/MMS/mms_university_marks/mms_university_marks.html',
+    controller: 'mms_university_marks',
+    controllerAs: 'vm'
+})
+.state('mms_university_marks_Ume', {
+    url: '/erp/MMS/mms_university_marks_Ume',
+    templateUrl: 'app/pages/MMS/mms_university_marks/mms_university_marks.html',
+    controller: 'mms_university_marks',
+    controllerAs: 'vm'
+})
+.state('mms_university_marks_Hod', {
+    url: '/erp/MMS/mms_university_marks_Hod',
+    templateUrl: 'app/pages/MMS/mms_university_marks/mms_university_marks.html',
+    controller: 'mms_university_marks',
+    controllerAs: 'vm'
+})
+.state('mms_university_marks_Dean', {
+    url: '/erp/MMS/mms_university_marks_Dean',
+    templateUrl: 'app/pages/MMS/mms_university_marks/mms_university_marks.html',
+    controller: 'mms_university_marks',
+    controllerAs: 'vm'
+})
+.state('mms_university_marks_Registrar', {
+    url: '/erp/MMS/mms_university_marks_Registrar',
+    templateUrl: 'app/pages/MMS/mms_university_marks/mms_university_marks.html',
+    controller: 'mms_university_marks',
+    controllerAs: 'vm'
+})
+.state('mms_BloomsTaxonomy', {
+    url: '/erp/MMS/mms_BloomsTaxonomy',
+    templateUrl: 'app/pages/MMS/mms_blooms_taxonomy/mms_BloomsTaxonomy.html',
+    controller: 'mms_BloomsTaxonomy',
+    controllerAs: 'vm'
+})
+.state('mms_quespaper_format', {
+    url: '/erp/MMS/mms_quespaper_format',
+    templateUrl: 'app/pages/MMS/question_paper_format/question_paper_format.html',
+    controller: 'question_paper_format',
+    controllerAs: 'vm'
+})
+.state('mms_attainment_setting', {
+    url: '/erp/MMS/mms_attainment_setting',
+    templateUrl: 'app/pages/MMS/mms_attainment_setting/mms_attainment_setting.html',
+    controller: 'mms_attainment_setting',
+    controllerAs: 'vm'
+})
+.state('mms_CtmarksRule', {
+    url: '/erp/MMS/mms_CtmarksRule',
+    templateUrl: 'app/pages/MMS/mms_CtmarksRule/mms_CtmarksRule.html',
+    controller: 'mms_CtmarksRule_controller',
+    controllerAs: 'vm'
+})
+.state('mms_exam_schedule_form', {
+    url: '/erp/MMS/mms_exam_schedule_form_dean',
+    templateUrl: 'app/pages/MMS/mms_exam_schedule/mms_exam_schedule_form.html',
+    controller: 'mms_exam_schedule_form',
+    controllerAs: 'vm'
+})
+.state('mms_exam_schedule', {
+    url: '/erp/MMS/mms_exam_schedule_form',
+    templateUrl: 'app/pages/MMS/mms_exam_schedule/mms_exam_schedule.html',
+    controller: 'mms_exam_schedule',
+    controllerAs: 'vm'
+})
+.state('mms_attendance_marks', {
+    url: '/erp/MMS/mms_attendance_marks',
+    templateUrl: 'app/pages/MMS/mms_attendance_marks/mms_attendance_marks.html',
+    controller: 'mms_attendance_marks',
+    controllerAs: 'vm'
+})
+*************************************BonusMarks**************************************
+.state('mms_BonusMarks', {
+    url: '/erp/MMS/mms_BonusCriteria',
+    templateUrl: 'app/pages/MMS/BonusMarks/mms_BonusCriteria/mms_BonusCriteria.html',
+    controller: 'mms_BonusCriteria_controller',
+    controllerAs: 'vm'
+})
+.state('mms_BonusRules', {
+    url: '/erp/MMS/mms_BonusRules',
+    templateUrl: 'app/pages/MMS/BonusMarks/mms_BonusRules/mms_BonusRules.html',
+    controller: 'mms_BonusRulescontroller',
+    controllerAs: 'vm'
+})
+**************************************************************************************
+.state('mms_vision', {
+    url: '/erp/mms_vision',
+    templateUrl: 'app/pages/MMS/mms_vision/mms_vision.html',
+    controller: 'mms_vision',
+    controllerAs: 'vm'
+})
+.state('mms_peo_po_mapping', {
+    url: '/erp/MMS/mms_peo_po_mapping',
+    templateUrl: 'app/pages/MMS/mms_peo_po_mapping/mms_peo_po_mapping.html',
+    controller: 'mms_peo_po_mapping',
+    controllerAs: 'vm'
+})
+.state('mms_peo_mission_mapping', {
+    url: '/erp/MMS/mms_peo_mission_mapping',
+    templateUrl: 'app/pages/MMS/mms_peo_mission_mapping/mms_peo_mission_mapping.html',
+    controller: 'mms_peo_mission_mapping',
+    controllerAs: 'vm'
+})
+.state('mms_survey_form', {
+    'url': '/erp/MMS/mms_survey_form',
+    'templateUrl': 'app/pages/MMS/mms_survey_form/mms_survey_form.html',
+    'controller': 'mms_survey_form',
+    'controllerAs': 'vm'
+})
+.state('mms_approveQP', {
+    url: '/erp/MMS/mms_approveQP',
+    templateUrl: 'app/pages/MMS/mms_approveQP/mms_approveQP.html',
+    controller: 'mms_approveQP',
+    controllerAs: 'vm'
+})
+.state('mms_intMarks', {
+    url: '/erp/MMS/mms_intMarks',
+    templateUrl: 'app/pages/MMS/mms_intMarks/mms_intMarks.html',
+    controller: 'mms_intMarks',
+    controllerAs: 'vm'
+})
+.state('mms_TA_marks', {
+    url: '/erp/MMS/mms_TA_marks',
+    templateUrl: 'app/pages/MMS/mms_TA_marks/mms_TA_marks.html',
+    controller: 'mms_TA_marks',
+    controllerAs: 'vm'
+})
+.state('mms_practical_marks', {
+    url: '/erp/MMS/mms_practical_marks',
+    templateUrl: 'app/pages/MMS/mms_practical_marks/mms_practical_marks.html',
+    controller: 'mms_practical_marks',
+    controllerAs: 'vm'
+})
+.state('mms_addQuestion', {
+    url: '/erp/MMS/mms_addQuestion',
+    templateUrl: 'app/pages/MMS/mms_addQuestion/mms_addQuestion.html',
+    controller: 'mms_addQuestion',
+    controllerAs: 'vm'
+})
+.state('mms_createQuestionPaper', {
+    url: '/erp/MMS/mms_createQuestionPaper',
+    templateUrl: 'app/pages/MMS/mms_createQuestionPaper/mms_createQuestionPaper.html',
+    controller: 'mms_createQuestionPaper',
+    controllerAs: 'vm'
+})
+.state('mms_question_review', {
+    url: '/erp/MMS/mms_question_review',
+    templateUrl: 'app/pages/MMS/mms_question_review/mms_question_review.html',
+    controller: 'mms_question_review_controller',
+    controllerAs: 'vm'
+})
+.state('mms_ct_marks_rule', {
+    url: '/erp/MMS/mms_ct_marks_rule',
+    templateUrl: 'app/pages/MMS/mms_ct_marks_rule/mms_ct_marks_rule.html',
+    controller: 'mms_ct_marks_rule',
+    controllerAs: 'vm'
+})
+.state('mms_format2_rule', {
+    url: '/erp/MMS/mms_format2_rule',
+    templateUrl: 'app/pages/MMS/mms_format2_rule/mms_format2_rule.html',
+    controller: 'mms_format2_rule',
+    controllerAs: 'vm'
+})
+.state('mms_student_extra_bonus', {
+    url: '/erp/MMS/mms_student_extra_bonus',
+    templateUrl: 'app/pages/MMS/mms_student_extra_bonus/mms_student_extra_bonus.html',
+    controller: 'mms_student_extra_bonus',
+    controllerAs: 'vm'
+})
+
+
+/////////////////////////////////////////////////////////////////////////

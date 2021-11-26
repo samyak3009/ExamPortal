@@ -1,0 +1,183 @@
+<!-- <div class="task-container"> -->
+<div ng-if="x.type == 'input'" class="">
+  <div class="col-md-{{x.width}}" ng-if="x.category == 'text'">
+    <span class="question">
+      <b> {{$index+1}}.&nbsp;) &nbsp;</b>
+      <span class="ques_label" for="" ng-bind-html="x.label"></span>
+      <span ng-if="x.mand" style="color: red"> *</span>
+    </span>
+    <span ng-if="x.max_marks != null" style="color: green;" class="pull-right"><strong>[ Marks - {{x.max_marks}} ]</strong></span>
+    <div ng-include src="'app/pages/MMS/fillForm/Input_Text.html'"></div>
+    <br />
+  </div>
+
+  <div class="col-md-{{x.width}}" ng-if="x.category == 'email'">
+    <span class="question">
+      <b> {{$index+1}}.&nbsp;) &nbsp;</b>
+      <span class="ques_label" for="" ng-bind-html="x.label"></span>
+      <span ng-if="x.mand" style="color: red"> *</span>
+    </span>
+    <span ng-if="x.max_marks != null" style="color: green;" class="pull-right"><strong>[ Marks - {{x.max_marks}} ]</strong></span>
+    <div ng-include src="'app/pages/MMS/fillForm/Email.html'"></div>
+    <br />
+  </div>
+
+  <div class="col-md-{{x.width}}" ng-if="x.category == 'number'">
+    <span class="question">
+      <b> {{$index+1}}.&nbsp;) &nbsp;</b>
+      <span class="ques_label" for="" ng-bind-html="x.label"></span>
+      <span ng-if="x.mand" style="color: red"> *</span>
+    </span>
+    <span ng-if="x.max_marks != null" style="color: green;" class="pull-right"><strong>[ Marks - {{x.max_marks}} ]</strong></span>
+    <div ng-include src="'app/pages/MMS/fillForm/Number.html'"></div>
+    <br />
+  </div>
+
+  <div class="col-md-{{x.width}}" ng-if="x.category == 'paragraph'">
+    <span class="question">
+      <b> {{$index+1}}.&nbsp;) &nbsp;</b>
+      <span class="ques_label" for="" ng-bind-html="x.label"></span
+      ><span ng-if="x.mand" style="color: red"> *</span></span
+    >
+    <span ng-if="x.max_marks != null" style="color: green;" class="pull-right"><strong>[ Marks - {{x.max_marks}} ]</strong></span>
+    <div ng-include src="'app/pages/MMS/fillForm/paragraph.html'"></div>
+    <br />
+  </div>
+  <div ng-if="x.category == 'radio'">
+    <div class="col-md-12">
+      <span class="question">
+        <b> {{$index+1}}.&nbsp;) &nbsp;</b>
+        <span class="ques_label" for="" ng-bind-html="x.label"></span>
+        <span ng-if="x.mand" style="color: red"> *</span>
+      </span>
+      <span ng-if="x.max_marks != null" style="color: green;" class="pull-right"><strong>[ Marks - {{x.max_marks}} ]</strong></span>
+    </div>
+    <br />
+    <div class="row">
+      <div ng-repeat="y in x.options track by $index" class="col-md-6">
+        <!-- <div class="row"> -->
+
+        <div
+          class="col-md-6"
+          ng-include
+          src="'app/pages/MMS/fillForm/radio_btn.html'"
+        ></div>
+
+        <!-- </div> -->
+      </div>
+      <!-- <div class="col-md-6">
+                <div class="col-md-6">
+                    <label   style="font-weight: 400;" class="checkbox minotaur-radio"> Other
+                        <input ng-value="'true'" ng-model="vm.other[$index]" uib-tooltip="{{x.info}}" name="vm[x.model]" type="radio">
+                        <div class="input-indicator"></div>
+                      </label>
+                </div>
+                <div ng-if="vm.other[$index] == 'true' ? true : false" class="col-md-6">
+                    <input type="text" ng-model="x.answer" class="form-control" name="" id="">
+                </div>
+            </div> -->
+    </div>
+
+    <!-- <span ng-if="x.isremarks == true">
+      <br />
+      <textarea
+        placeholder="Remarks"
+        ng-model="x.remarks"
+        class="remarks form-control"
+        name=""
+        id=""
+        cols="30"
+        rows="10"
+      ></textarea>
+    </span> -->
+    <br />
+  </div>
+  <div ng-if="x.category == 'checkbox'">
+    <div class="col-md-12">
+      <span class="question">
+        <b> {{$index+1}}.&nbsp;) &nbsp;</b>
+        <span class="ques_label" for="" ng-bind-html="x.label"></span
+        ><span ng-if="x.mand" style="color: red"> *</span></span
+      >
+      <span ng-if="x.max_marks != null" style="color: green;" class="pull-right"><strong>[ Marks - {{x.max_marks}} ]</strong></span>
+    </div>
+    <br />
+    <div class="row">
+      <div
+        ng-repeat="y in x.options track by $index"
+        class="col-md-6"
+        ng-init="x.answer = []"
+      >
+        <!-- <div class="row">
+                        <div class="col-md-6">
+                            <label for="">{{$index+1}} ) {{y}}</label>
+                        </div> -->
+        <div class="row">
+          <div
+            class="col-md-6"
+            ng-include
+            src="'app/pages/MMS/fillForm/check_box.html'"
+          ></div>
+        </div>
+        <!-- </div> -->
+      </div>
+    </div>
+
+    <!-- <span ng-if="x.isremarks == true">
+      <br />
+      <textarea
+        placeholder="Remarks"
+        ng-model="x.remarks"
+        class="remarks form-control"
+        name=""
+        id=""
+        cols="30"
+        rows="10"
+      ></textarea>
+    </span> -->
+    <br />
+  </div>
+  <div class="col-md-{{x.width}}" ng-if="x.category == 'date'">
+    <span class="question">
+      <b> {{$index+1}}.&nbsp;) &nbsp;</b>
+      <span class="ques_label" for="" ng-bind-html="x.label"></span
+      ><span ng-if="x.mand" style="color: red"> *</span></span
+    >
+    <span ng-if="x.max_marks != null" style="color: green;" class="pull-right"><strong>[ Marks - {{x.max_marks}} ]</strong></span>
+    <div ng-include src="'app/pages/MMS/fillForm/date.html'"></div>
+    <br />
+  </div>
+  <div class="col-md-{{x.width}}" ng-if="x.category == 'file'">
+    <span class="question">
+      <b> {{$index+1}}.&nbsp;) &nbsp;</b>
+      <span class="ques_label" for="" ng-bind-html="x.label"></span
+      ><span ng-if="x.mand" style="color: red"> *</span></span
+    >
+    <span ng-if="x.max_marks != null" style="color: green;" class="pull-right"><strong>[ Marks - {{x.max_marks}} ]</strong></span>
+    <div ng-include src="'app/pages/MMS/fillForm/file_upload.html'"></div>
+    <br />
+  </div>
+</div>
+
+<div class="col-md-{{x.width}}" ng-if="x.category == 'slider'">
+  <span class="question">
+    <b> {{$index+1}}.&nbsp;) &nbsp;</b>
+    <span class="ques_label" for="" ng-bind-html="x.label"></span
+    ><span ng-if="x.mand" style="color: red"> *</span></span
+  >
+  <span ng-if="x.max_marks != null" style="color: green;" class="pull-right"><strong>[ Marks - {{x.max_marks}} ]</strong></span>
+  <div ng-include src="'app/pages/MMS/fillForm/slider.html'"></div>
+  <br />
+</div>
+
+<div class="col-md-{{x.width}}" ng-if="x.type == 'dropdown'">
+  <span class="question">
+    <b> {{$index+1}}.&nbsp;) &nbsp;</b>
+    <span class="ques_label" for="" ng-bind-html="x.label"></span
+    ><span ng-if="x.mand" style="color: red"> *</span></span
+  >
+  <span ng-if="x.max_marks != null" style="color: green;" class="pull-right"><strong>[ Marks - {{x.max_marks}} ]</strong></span>
+  <div ng-include src="'app/pages/MMS/fillForm/drop_down.html'"></div>
+  <br />
+</div>
+<!-- </div> -->

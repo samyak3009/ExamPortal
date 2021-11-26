@@ -1,0 +1,17 @@
+<a
+  ng-href="{{model.link_address==''?'':'#/'+model.link_address}}"
+  style="cursor: pointer"
+  ng-click="selectValue(model)"
+>
+  <span class="nav-text">{{model.link_name}}</span>
+  <i class="nav-icon {{ model.icons}}"></i>
+</a>
+<ul style="display: none">
+  <li
+    ui-sref-active="active"
+    class="dropdown"
+    ng-repeat="model in model.sub_tabs"
+    id="{{model.menu_id}}"
+    ng-include="'app/components/partials/navigation/node.html'"
+  ></li>
+</ul>
