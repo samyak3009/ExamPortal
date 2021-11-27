@@ -17,29 +17,4 @@
     border-radius: 10px;
   }
 }
-.easypiechart {
-  display: inline-block;
-  position: relative;
-  text-align: center;
-  margin: 5px auto;
 
-  .pie-percent {
-    display: inline-block;
-    line-height: 100%;
-    font-size: 40px;
-    font-weight: 300;
-    color: #333;
-
-    &:after {
-      content: '%';
-      margin-left: 0.1em;
-      font-size: .6em;
-    }
-  }
-
-  canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-}

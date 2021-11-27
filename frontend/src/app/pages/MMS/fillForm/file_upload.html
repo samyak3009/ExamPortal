@@ -4,6 +4,7 @@
 <!-- </div> -->
 <span uib-tooltip="{{x.info}}" style="display: inline-flex">
   <input
+    disabled
     name="doc"
     type="file"
     uib-tooltip="{{x.info}}"
@@ -18,13 +19,13 @@
     onchange="angular.element(this).scope().upload(this.files,this.id,'activity','activity')"
     ng-required="true"
   />
-  <img
+  <!-- <img
     ng-if="vm.image"
     ng-src="https://tech.kiet.edu/upload_images/activity/activity/{{vm.doc}}"
     height="auto"
     width="150px"
     alt=""
-  />
+  /> -->
 </span>
 
 <!-- <span ng-if="x.isremarks == true">

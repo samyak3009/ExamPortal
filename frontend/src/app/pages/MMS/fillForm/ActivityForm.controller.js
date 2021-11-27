@@ -5,12 +5,7 @@
     .controller("FillForm", FillForm)
     .controller("MyModalInstanceController", MyModalInstanceController);
 
-  function MyModalInstanceController(
-    $uibModalInstance,
-    ExportToExcel,
-    $log,
-    status
-  ) {
+  function MyModalInstanceController($uibModalInstance, ExportToExcel, status) {
     var vm = this;
     // vm.view1=true;
     // vm.view2=false;
@@ -44,7 +39,8 @@
     NgTableParams,
     BaseUrl_Files,
     fileUpload,
-    $uibModal
+    $uibModal,
+    $interval
   ) {
     var vm = this;
 
@@ -166,7 +162,7 @@
     vm.end_time = vm.formJson1.end_time;
 
     // ===============COUNTDOWN============================
-    var x = setInterval(function () {
+    var x = $interval(function () {
       var countDownDate = new Date(vm.end_time).getTime();
 
       // Get today's date and time
@@ -186,17 +182,22 @@
       // Display the result in the element with id="demo"
       vm.countdown =
         days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-      console.log($scope.countdown);
 
       // If the count down is finished, write some text
       if (distance < 0) {
-        clearInterval(x);
+        $interval.cancel(x);
         console.log("Hello");
         vm.submit(true);
         // document.getElementById("demo").innerHTML = "EXPIRED";
       }
-      $scope.$digest();
     }, 1000);
+
+    $scope.$on(
+      "$stateChangeStart",
+      function (evt, toState, toParams, fromState, fromParams) {
+        $interval.cancel(x);
+      }
+    );
 
     // ================END COUNTDOWN=========================
 
