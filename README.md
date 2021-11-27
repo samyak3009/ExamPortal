@@ -1,7 +1,7 @@
 # Submission-Toll
 Online Exam Portal
 
-View the **[Live demo application (click here)](https://samyak3009.github.io/frontend-live/#/home_page)** 
+View the **[Live Application (click here)](https://samyak3009.github.io/frontend-live/#/home_page)** 
 # Getting started
 
 ### Frontend installation:
