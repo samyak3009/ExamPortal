@@ -1,5 +1,5 @@
 # Submission-Toll
-Exam Portal
+Online Exam Portal
 
 
 View the **[demo application](https://samyak3009.github.io/frontend-live/#/home_page)** 
