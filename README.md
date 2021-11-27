@@ -5,9 +5,10 @@ View the **[Live demo application (click here)](https://samyak3009.github.io/fro
 # Getting started
 
 ### Frontend installation:
-1. Clone repository
-2. Install gulp
-3. Run `gulp serve`
+1.	Move to frontend directory (`cd frontend`).
+2. Clone repository
+3. Install gulp
+4. Run `gulp serve`
 
 Make sure you have gulp installed globally (`npm install -g gulp`)
 
