@@ -8,5 +8,6 @@ coverage/
 .tmp/
 dist_mms/
 # src/app/components/services/BaseUrl.js
-venv/
+# venv/
+# env/
 # src/app/components/services/BaseUrl_Files.js
