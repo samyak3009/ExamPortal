@@ -2,7 +2,7 @@
 Exam Portal
 
 
-View the **[demo application](https://prakharbhardwaj2412.github.io/submission-tool-live/#/home_page)** 
+View the **[demo application](https://samyak3009.github.io/frontend-live/#/home_page)** 
 # Getting started
 
 1. Clone repository
