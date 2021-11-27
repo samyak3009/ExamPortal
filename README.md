@@ -15,9 +15,7 @@ Node version must be 10.
 
 ### Making requests to the backend API
 
-For convenience, we have a live API server running at https://microsoftback.herokuapp.com/ for the application to make requests against. 
-
-The source code for the backend server (available for Django) can be found in the https://github.com/samyak3009/backend/.
+For convenience, we have a live API server running at https://microsoftback.herokuapp.com/ for the application to make requests against.
 
 If you want to change the API URL to a local server, simply edit `src/app/components/services/BaseUrl.js` and change `api` to the local server's 
 Note: bower_components and node_modules are the dependencies file not the we pushed it on the repo for the easier installation for you. 
